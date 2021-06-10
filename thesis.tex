@@ -1,9 +1,9 @@
 %
 % Thesis - Main
-% Lakshitha de Silva
+% Leopold Pfeiffer
 % School of Computer Science
 % University of St Andrews, Scotland, UK
-% 2014
+% 2021
 %
 
 \documentclass{stacsthesis}
@@ -21,11 +21,12 @@
 \usepackage{enumitem}
 \usepackage{pifont}
 \usepackage[nointegrals]{wasysym}
+\usepackage{amsmath}
 \usepackage{syntax}
 \usepackage{textcomp}
 \usepackage[font=small,labelfont=bf,skip=16pt]{caption}
 \usepackage{hyperref}
-\usepackage[toc,acronym,nonumberlist,nomain]{glossaries}		% This has to load after hyperref package
+\usepackage{natbib}
 
 %
 % Compiler warnings
@@ -83,6 +84,13 @@
 \def\javacode{\lstinline[basicstyle=\bfseries\ttfamily,basewidth=0.48em,language=Java]}
 
 %
+% Custom commands
+%
+
+% R number
+\newcommand{\R}{\mathcal{R}}
+
+%
 % Configure caption and sub-caption styles
 %
 \newsubfloat{figure}
@@ -102,15 +110,8 @@
 \maxtocdepth{subsection}
 
 %
-% Customise glossary
-%
-\renewcommand*{\glspostdescription}{}				% Remove dot at the end of glossary items
-\makeglossaries								% Generate glossary
-
-%
 % Chapter and page style
 %
-\chapterstyle{stacs-chap}
 \pagestyle{stacs-pg}
 
 %
@@ -129,27 +130,26 @@
 %
 \begin{document}
 \hypersetup{pageanchor=false}
-\title{Towards Controlling Software Architecture Erosion Through Runtime Conformance Monitoring}
-\author{Lakshitha de Silva}
-\school{School of Computer Science}
-\degree{Doctor of Philosophy}
+\title{A Compartmental Network Model for COVID-19}
+\author{Leopold Jakob Pfeiffer}
+\school{190026921}
+% \school{School of Computer Science}
+\degree{MSc Data-Intensive Analysis}
 \submittextA{This thesis is submitted in partial fulfilment for the degree of}
-\submittextB{at the University of St Andrews}
-\submitdate{May 2014}
+\submittextB{at the University of St Andrews, School of Computer Science}
+\submitdate{August 2021}
 \maketitle
 
 %
 % Prologue
 %
-\include{prologue/abstract}
-\include{prologue/acknowledgements}
-\include{prologue/declaration}
-\include{prologue/permissions}
-\include{prologue/dedication}
-\include{prologue/glossary}
+\include{msc-thesis/prologue/abstract}
+\include{msc-thesis/prologue/acknowledgements}
+\include{msc-thesis/prologue/declaration}
+\include{msc-thesis/prologue/permissions}
 
 %
-% Tables of contents/figures/tables and glossary
+% Tables of contents/figures/tables
 %
 \cleardoublepage
 \hypersetup{pageanchor=true}
@@ -158,7 +158,6 @@
 \newpage\listoffigures
 \newpage\listoftables
 \newpage\lstlistoflistings
-\printglossaries
 
 %
 % Mainmatter properties
@@ -179,28 +178,41 @@
 % Graphics directories
 %
 \graphicspath{
-	{chap1/}
-	{chap2/}
-	{chap3/}
-	{chap4/}
-	{appA/}
-	{appB/}
+	{msc-thesis/1introduction/}
+	{msc-thesis/2literature/}
+	{msc-thesis/3network/}
+	{msc-thesis/4model/}
+	{msc-thesis/5implementation/}
+	{msc-thesis/6website/}
+	{msc-thesis/7extension/}
+	{msc-thesis/8conclusion/}
+	{msc-thesis/chap1/}
+	{msc-thesis/chap2/}
+	{msc-thesis/chap3/}
+	{msc-thesis/chap4/}
+	{msc-thesis/appA/}
+	{msc-thesis/appB/}
 }
 
+
 %
-% Chapters
+% Content
 %
-\include{chap1/doc}
-\include{chap2/doc}
-\include{chap3/doc}
-\include{chap4/doc}
+\include{msc-thesis/1introduction/doc}
+\include{msc-thesis/2literature/doc}
+\include{msc-thesis/3network/doc}
+\include{msc-thesis/4model/doc}
+\include{msc-thesis/5implementation/doc}
+\include{msc-thesis/6website/doc}
+\include{msc-thesis/7extension/doc}
+\include{msc-thesis/8conclusion/doc}
 
 %
 % Appendices
 %
 \appendix
-\include{appA/doc}
-\include{appB/doc}
+\include{msc-thesis/appA/doc}
+\include{msc-thesis/appB/doc}
 
 %
 % Bibliography

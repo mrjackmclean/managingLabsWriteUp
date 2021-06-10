@@ -9,7 +9,7 @@
 \ProvidesClass{stacsthesis}[2014/04/04 v0.1 StACS PhD thesis class]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
 \ProcessOptions\relax
-\LoadClass[a4paper,twoside,12pt]{memoir}
+\LoadClass[a4paper,12pt,oneside,openany]{memoir}
 
 %
 % Dependent packages
@@ -26,6 +26,7 @@
 \RequirePackage{mathptmx}
 \RequirePackage{changepage}
 \RequirePackage[letterspace=32]{microtype}
+\RequirePackage{titlesec}
 
 %
 % Macros
@@ -35,7 +36,7 @@
 \def\submitdate#1{\gdef\@submitdate{#1}}
 \def\submittextA#1{\gdef\@submittextA{#1}}
 \def\submittextB#1{\gdef\@submittextB{#1}}
-\def\logo{\includegraphics[width=32mm]{stacrest.pdf}}
+\def\logo{\includegraphics[width=32mm]{stacrest.png}}
 \def\bibtitle#1{\gdef\@bibtitle{#1}}
 
 %
@@ -53,7 +54,7 @@
 % Text properties and margins
 %
 \setlength{\topmargin}{2mm}
-\setlength{\oddsidemargin}{8mm}
+\setlength{\oddsidemargin}{0mm}
 \setlength{\evensidemargin}{0mm}
 \setlength{\textwidth}{160mm}
 \setlength{\textheight}{224mm}
@@ -70,7 +71,7 @@
 		\begin{center}
     			\Huge{\textls{\@title}}\par
 			\Large\vspace*{24mm}{\textls{\@author}}\par
-			%\large\vspace*{2.4mm}{\@school}\par
+			\large\vspace*{2.4mm}{\@school}\par
 			\vspace*{44mm}{\logo}\par
 			\normalsize\vspace*{36mm}{\@submittextA}\par
 			\normalsize\vspace*{2mm}{\emph{\@degree}}\par
@@ -140,41 +141,19 @@
 %
 % Chapter style
 %
-\definecolor{chaptercolor}{gray}{0.92}
-\makechapterstyle{stacs-chap}{
-	\renewcommand*{\printchaptername}{\flushright}
-	\renewcommand*{\printchapternum}{
-		\begingroup
-		\leavevmode
-		\chapnumfont\raisebox{-4.0cm}[0pt][0pt]{\smash{\thechapter}}\flushright
-		\endgroup
-		\vskip -78pt
-		\IfInteger{\thechapter}
-			{\chapnamefont{\chaptername$\thickspace$}\numtoName{\thechapter}\flushright}
-			{\chapnamefont{\appendixname$\thickspace$}\thechapter\flushright}
-		\linespread{0.92}\fontsize{40}{48}\selectfont\flushright
-		\setlength{\midchapskip}{0pt}
-		\setlength{\beforechapskip}{0pt}
-		\setlength{\afterchapskip}{112pt}
- 	}
-	\renewcommand*{\printchapternonum}{
-		\linespread{0.92}\fontsize{30}{36}\selectfont\flushright
-		\setlength{\beforechapskip}{0pt}
-		\setlength{\midchapskip}{0pt}
-		\setlength{\afterchapskip}{24pt}
-	}
-	\renewcommand*{\printchaptertitle}[1]{\chaptitlefont{##1}}
-	\renewcommand*{\chapnumfont}{\fontsize{11.2cm}{0}\bfseries\color{chaptercolor}}
-	\renewcommand*{\chapnamefont}{\scshape\linespread{1.28}\Large\flushright}
-	\renewcommand*{\chaptitlefont}{\scshape\flushright}
-}
+\titleformat{\chapter}[block]
+  {\normalfont\huge\bfseries\thispagestyle{stacs-pg}}{\thechapter}{1em}{\Huge}
+\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
 
 %
 % Page style
-%
+
+% underline header command
+\newcommand{\insertunderline}{\rule[-.3\baselineskip]{\linewidth}{.4pt}}
+
 \makepagestyle{stacs-pg}
-\makeevenhead{stacs-pg}{\small\normalfont\scshape\thepage}{}{\scriptsize\slshape\leftmark}
-\makeoddhead{stacs-pg}{\scriptsize\slshape\rightmark}{}{\small\normalfont\scshape\thepage}
+\makeevenhead{stacs-pg}{\scriptsize\slshape\rightmark}{\insertunderline}{\small\normalfont\scshape\thepage}
+\makeoddhead{stacs-pg}{\scriptsize\slshape\rightmark}{\insertunderline}{\small\normalfont\scshape\thepage}
 \setlength{\topmargin}{0pt}
 \setlength{\headsep}{24pt}
 \setlength{\textheight}{656pt}
