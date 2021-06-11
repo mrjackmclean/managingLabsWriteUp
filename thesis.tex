@@ -27,6 +27,12 @@
 \usepackage[font=small,labelfont=bf,skip=16pt]{caption}
 \usepackage{hyperref}
 \usepackage{natbib}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{booktabs,caption,fixltx2e}
+\usepackage[flushleft]{threeparttable}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
 
 %
 % Compiler warnings
@@ -130,7 +136,7 @@
 %
 \begin{document}
 \hypersetup{pageanchor=false}
-\title{A Compartmental Network Model for COVID-19}
+\title{\textbf{Managing Labs} \\ Developing Lab Management Software for the New Normal}
 \author{Jack McLean \textbf{190025023} \\ Supervisor: Ruth Letham}
 \school{School of Computer Science}
 \degree{MSc Computing \& Information Technology}
@@ -178,13 +184,12 @@
 % Content
 %
 \include{1introduction/doc}
-\include{2literature/doc}
-\include{3network/doc}
-\include{4model/doc}
+\include{2context/doc}
+\include{3analyse/doc}
+\include{4design/doc}
 \include{5implementation/doc}
-\include{6website/doc}
-\include{7extension/doc}
-\include{8conclusion/doc}
+\include{6evluation/doc}
+\include{7conclusion/doc}
 
 %
 % Appendices
