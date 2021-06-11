@@ -33,6 +33,10 @@
 \usepackage[flushleft]{threeparttable}
 \usepackage[margin=1in]{geometry}
 \usepackage[utf8]{inputenc}
+\usepackage[toc]{glossaries}
+
+\makeglossaries
+\loadglsentries{glossary}
 
 %
 % Compiler warnings
@@ -93,9 +97,6 @@
 % Custom commands
 %
 
-% R number
-\newcommand{\R}{\mathcal{R}}
-
 %
 % Configure caption and sub-caption styles
 %
@@ -153,6 +154,7 @@
 \include{prologue/declaration}
 \include{prologue/permissions}
 
+
 %
 % Tables of contents/figures/tables
 %
@@ -188,7 +190,7 @@
 \include{3analyse/doc}
 \include{4design/doc}
 \include{5implementation/doc}
-\include{6evluation/doc}
+\include{6evaluation/doc}
 \include{7conclusion/doc}
 
 %
@@ -197,6 +199,12 @@
 \appendix
 \include{appA/doc}
 \include{appB/doc}
+
+
+%
+% Glossary
+%
+\printglossaries
 
 %
 % Bibliography
