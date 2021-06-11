@@ -4,8 +4,6 @@
 
 TODO stakeholders ?
 
-TODO MOSCOW PRIORIT - must, should, ought, would, wont, could
-
 \subsection{TODO User Stories}
 
 \newpage
@@ -26,25 +24,25 @@ TODO: later in project, make sure table fits properly
  \multicolumn{3}{c}{\textit{\textbf{Account Requirements}}}\\
  
  \hline
- F-01 & \textit{Description:} The system shall allow students to register on the system by providing a verified student email address and a password. & High\\
+ F-01 & \textit{Description:} The system shall allow students to register on the system by providing a verified student email address and a password. & M\\
   \cline{2-2}
   & \textit{Rationale:} Students must be able to sign up using only a school email address, which they can verify access to, to register on the system. & \\
 
   
    \hline\hline
- F-02 & \textit{Description:} The system should allow students to sign in using the Shibboleth \gls{sso} system used by the school. & Low\\
+ F-02 & \textit{Description:} The system should allow students to sign in using the Shibboleth \gls{sso} system used by the school. & W\\
   \cline{2-2}
   & \textit{Rationale:} Students can only log in if Shibboleth authenticates them, making the system more secure, reliable and meaning authentication is centralised to align with other school systems. & \\
 
   
      \hline\hline
- F-03 & \textit{Description:} Lab leads shall be able to assign class demonstrator role to users. & High\\
+ F-03 & \textit{Description:} Lab leads shall be able to assign class demonstrator role to users. & M\\
   \cline{2-2}
   & \textit{Rationale:} This allows class demonstrator accounts to be created without allowing regular students to attempt to class create demonstrator accounts. & \\
 
   
        \hline\hline
- F-04 & \textit{Description:} System administrators shall be able to assign lab lead role to users. & High\\
+ F-04 & \textit{Description:} System administrators shall be able to assign lab lead role to users. & M\\
   \cline{2-2}
   & \textit{Rationale:} This allows lab lead accounts to be created. & \\
   \hline
@@ -52,46 +50,46 @@ TODO: later in project, make sure table fits properly
    \multicolumn{3}{c}{\textit{\textbf{Ticket Requirements}}}\\
   
  \hline
- F-05 & \textit{Description:} Whilst the lab is open, students shall be able to create `tickets' by providing information on the module code, practical or workshop number, issue category and issue description. & High\\
+ F-05 & \textit{Description:} Whilst the lab is open, students shall be able to create `tickets' by providing information on the module code, practical or workshop number, issue category and issue description. & M\\
   \cline{2-2}
   & \textit{Rationale:} This creates a record of the issue that the student is having for the class demonstrators to interact with. & \\
 
   
  \hline\hline
- F-06 & \textit{Description:} Students should be able to add tags to their own tickets which associate them with related tickets. & Medium\\
+ F-06 & \textit{Description:} Students should be able to add tags to their own tickets which associate them with related tickets. & S\\
   \cline{2-2}
   & \textit{Rationale:} This allows students to give more clarification about the nature of the problem, create links with similar tickets (which they can view) and also help the system recommendation algorithm recommend similar past tickets. & \\
 
   
     \hline\hline
- F-07 & \textit{Description:} The system should recommend similar archived tickets before students post their tickets. & Low\\
+ F-07 & \textit{Description:} The system should recommend similar archived tickets before students post their tickets. & C\\
   \cline{2-2}
   & \textit{Rationale:} This allows students to scan archived tickets, checking if any will help resolve their issue, before they post a live ticket that demonstrators need to deal with. & \\
   
       \hline\hline
- F-08 & \textit{Description:} The system should keep a record of which archived tickets students have selected (`this solved my problem') before deleting the original ticket draft. & Low\\
+ F-08 & \textit{Description:} The system should keep a record of which archived tickets students have selected (`this solved my problem') before deleting the original ticket draft. & C\\
   \cline{2-2}
   & \textit{Rationale:} This allows lad leads and demonstrators to get information on issues which multiple students have had. & \\
   
    \hline\hline
- F-09 & \textit{Description:} Class demonstrators shall be able to assign themselves to tickets. & High\\
+ F-09 & \textit{Description:} Class demonstrators shall be able to assign themselves to tickets. & M\\
   \cline{2-2}
   & \textit{Rationale:} This allows demonstrators to keep track of, and indicate to other demonstrators, which issues they are working on or have completed. & \\
 
   
   \hline\hline
- F-10 & \textit{Description:} Class demonstrators shall be able to comment on tickets. & High\\
+ F-10 & \textit{Description:} Class demonstrators shall be able to comment on tickets. & S\\
   \cline{2-2}
   & \textit{Rationale:} This allows demonstrators to make notes on the issues and initiate contact with the students, although actual communication would primarily be done outside the system. & \\
 
     \hline\hline
- F-11 & \textit{Description:} Class demonstrators shall be able to close tickets. & High\\
+ F-11 & \textit{Description:} Class demonstrators shall be able to close tickets. & S\\
   \cline{2-2}
   & \textit{Rationale:} This allows demonstrators to mark tickets as no longer being `live' - either marking them as resolved or closed. & \\
 
   
       \hline\hline
- F-12 & \textit{Description:} Students should be able to close tickets. & High\\
+ F-12 & \textit{Description:} Students should be able to close tickets. & S\\
   \cline{2-2}
   & \textit{Rationale:} This allows students to remove their issues from the queue if they have solved the problem themselves. & \\
 \hline
@@ -106,64 +104,64 @@ TODO: later in project, make sure table fits properly
 \begin{tabular}{|p{0.05\linewidth} | p{0.78\linewidth} |p{0.09\linewidth}|}
   
           \hline
- F-13 & \textit{Description:} Class demonstrators should be able to `open' the lab, allowing tickets to be created by students. & Medium\\
+ F-13 & \textit{Description:} Class demonstrators should be able to `open' the lab, allowing tickets to be created by students. & S\\
   \cline{2-2}
   & \textit{Rationale:} This allows demonstrators to prevent help requests outwith lab hours. & \\
 
   
 \hline\hline
- F-14 & \textit{Description:} Lab leads should be able to ban or suspend users from the system. & Medium\\
+ F-14 & \textit{Description:} Lab leads should be able to ban or suspend users from the system. & C\\
   \cline{2-2}
   & \textit{Rationale:} This allows lab leads to remove users for inappropriate behaviour or posting excessively. & \\
  
  \hline\hline
- F-15 & \textit{Description:} The system should not allow offensive or abusive content to be posted. & Medium\\
+ F-15 & \textit{Description:} The system should not allow offensive or abusive content to be posted. & C\\
   \cline{2-2}
   & \textit{Rationale:} Prevents offensive behaviour. & \\
  
  \hline\hline
- F-16 & \textit{Description:} The system should not allow students to post more than one ticket every 3 minutes. & Low\\
+ F-16 & \textit{Description:} The system should not allow students to post more than one ticket every 3 minutes. & C\\
   \cline{2-2}
   & \textit{Rationale:} This prevents individual students from posting an excessive number of tickets on the system. TODO: should this be 3 minutes? limit to number of req per lab instead??? & \\
  
   \hline\hline
- F-17 & \textit{Description:} The system should allow students to edit and update their live tickets. & Medium\\
+ F-17 & \textit{Description:} The system should allow students to edit and update their live tickets. & C\\
   \cline{2-2}
   & \textit{Rationale:}  This allows users to provide more information on a ticket to improve demonstrators ability to help them. & \\
  
    \hline\hline
- F-18 & \textit{Description:} The system shall have an integrated live chat feature on each ticket that has a demonstrator assigned. & Medium\\
+ F-18 & \textit{Description:} The system shall have an integrated live chat feature on each ticket that has a demonstrator assigned. & S\\
   \cline{2-2}
   & \textit{Rationale:} This allows students and demonstrators to briefly discuss minor issues or to arrange communication outside the system. & \\
 
    \hline\hline
- F-19 & \textit{Description:} The system should have some form of video chat option on each ticket that has a demonstrator assigned. & Low\\
+ F-19 & \textit{Description:} The system should have some form of video chat option on each ticket that has a demonstrator assigned. & C\\
   \cline{2-2}
   & \textit{Rationale:} This allows students and demonstrators to resolve the problem raised by the ticket, removing any human error associated with looking the student up on another system - as well as reducing time spent doing so. & \\
 
    \hline\hline
- F-20 & \textit{Description:} The system should allow class demonstrators to post a `solution' for ticket. & Medium\\
+ F-20 & \textit{Description:} The system should allow class demonstrators to post a `solution' for ticket. & C\\
   \cline{2-2}
   & \textit{Rationale:} This allows demonstrators to store solutions with archived tickets, useful for future reference when archived tickets are recommended as similar to future students' tickets. & \\
 
    \hline\hline
- F-21 & \textit{Description:} The system should prompt class demonstrators to provide solutions for archived tickets which have repeatedly been marked by students as similar to their own tickets. & Low\\
+ F-21 & \textit{Description:} The system should prompt class demonstrators to provide solutions for archived tickets which have repeatedly been marked by students as similar to their own tickets. & C\\
   \cline{2-2}
   & \textit{Rationale:} This encourages demonstrators to provide solutions for more common problems, ensuring the recommendation system will be useful and therefore reduce the number of new tickets being created. It is also useful for reference by other class demonstrators. & \\
 
   
      \hline\hline
- F-22 & \textit{Description:} The system should give some indication to students of how busy the current lab session is or how many tickets are ahead of them in the queue. & Medium\\
+ F-22 & \textit{Description:} The system should give some indication to students of how busy the current lab session is or how many tickets are ahead of them in the queue. & S\\
   \cline{2-2}
   & \textit{Rationale:} This allows students to appreciate the amount of wait time that a response may require. & \\
 
      \hline\hline
- F-23 & \textit{Description:} The system shall allow students to specify their location for in-person labs. & High\\
+ F-23 & \textit{Description:} The system shall allow students to specify their location for in-person labs. & S\\
   \cline{2-2}
   & \textit{Rationale:} This allows the tool to be used for management of in-person labs, as well as labs which are both in-person and have virtual participants. & \\
  
       \hline\hline
- F-24 & \textit{Description:} The system should allow students to attach files to their tickets. & Medium\\
+ F-24 & \textit{Description:} The system should allow students to attach files to their tickets. & S\\
   \cline{2-2}
   & \textit{Rationale:} This allows demonstrators to study, understand and potentially solve issues quickly before they need to contact the student. & \\
   \hline
@@ -178,17 +176,17 @@ TODO: later in project, make sure table fits properly
   \multicolumn{3}{c}{\textit{\textbf{Summary Requirements}}}\\
   
           \hline
- F-25 & \textit{Description:} The system should show class demonstrators and lab leads a `timeline' of all actions on the system - such as lab opening, ticket posting, ticket commenting, ticket resolution and lab closing. & Low\\
+ F-25 & \textit{Description:} The system should show class demonstrators and lab leads a `timeline' of all actions on the system - such as lab opening, ticket posting, ticket commenting, ticket resolution and lab closing. & C\\
   \cline{2-2}
   & \textit{Rationale:} This allows demonstrators and lab leads to quickly scan recent activity, as well as helping demonstrators to quickly find recent tickets or comments. & \\
   
 \hline\hline
- F-26 & \textit{Description:} Lab leads shall be able to view lab summaries which provide statistics about the amount of tickets resolved, who resolved tickets and how long tickets remained unresolved in each individual lab. & High\\
+ F-26 & \textit{Description:} Lab leads shall be able to view lab summaries which provide statistics about the amount of tickets resolved, who resolved tickets and how long tickets remained unresolved in each individual lab. & M\\
   \cline{2-2}
   & \textit{Rationale:} This allows lab leads to review the efficiency of the ticketing system in the lab. & \\
 
  \hline\hline
- F-27 & \textit{Description:} Lab leads shall be able to view class summaries which provide statistics about the amount of tickets resolved, who resolved tickets and how long tickets remained unresolved for all labs in a given class. & High\\
+ F-27 & \textit{Description:} Lab leads shall be able to view class summaries which provide statistics about the amount of tickets resolved, who resolved tickets and how long tickets remained unresolved for all labs in a given class. & M\\
   \cline{2-2}
   & \textit{Rationale:} This allows lab leads to review the efficiency of the ticketing system in the class. & \\
   \hline
@@ -208,12 +206,12 @@ TODO: later in project, make sure table fits properly
    \multicolumn{3}{c}{\textit{\textbf{Usability Requirements}}}\\
  \hline
  
-   NF-01 & \textit{Description:} 95\% of students should be able to create a ticket in less than 5 minutes on the first attempt. & Medium \\
+   NF-01 & \textit{Description:} 95\% of students should be able to create a ticket in less than 5 minutes on the first attempt. & M \\
   \cline{2-2}
   & \textit{Rationale:} The system should be intuitive, quick and easy to use. & \\
 
    \hline\hline
-      NF-02 & \textit{Description:} 95\% of class demonstrators should be able to resolve a ticket, in the correct way (for example, marking the problem as resolved), in less than 1 minute on the first attempt. & Medium \\
+      NF-02 & \textit{Description:} 95\% of class demonstrators should be able to resolve a ticket, in the correct way (for example, marking the problem as resolved), in less than 1 minute on the first attempt. & M \\
   \cline{2-2}
   & \textit{Rationale:} The system should be intuitive, quick and easy to use. & \\
    \hline
@@ -221,22 +219,22 @@ TODO: later in project, make sure table fits properly
      \multicolumn{3}{c}{\textit{\textbf{Security Requirements}}}\\
      
      \hline
- NF-03 & \textit{Description:} Data shall be encrypted. & High\\
+ NF-03 & \textit{Description:} Data shall be encrypted. & M\\
   \cline{2-2}
   & \textit{Rationale:} Data needs to be protected from hostile users. & \\
   
     \hline\hline
- NF-04 & \textit{Description:} Data shall be stored securely. & High\\
+ NF-04 & \textit{Description:} Data shall be stored securely. & M\\
   \cline{2-2}
   & \textit{Rationale:} Data needs to be protected from hostile users. & \\
   
       \hline\hline
- NF-05 & \textit{Description:} The system shall anonymise (and archive for future reference) all resolved tickets. & High\\
+ NF-05 & \textit{Description:} The system shall anonymise (and archive for future reference) all resolved tickets. & M\\
   \cline{2-2}
   & \textit{Rationale:} This allows the system to show users the archived tickets without processing or storing any personal data. & \\
   
       \hline\hline
- NF-06 & \textit{Description:} The system shall allow only class demonstrators (and lab leads) to view live tickets and names of students. & High\\
+ NF-06 & \textit{Description:} The system shall only alloq class demonstrators (and lab leads) to view live tickets and names of students. & M\\
   \cline{2-2}
   & \textit{Rationale:} This addresses privacy concerns arising from students being able to view other students' names and tickets. & \\
 \hline
@@ -244,12 +242,12 @@ TODO: later in project, make sure table fits properly
     \multicolumn{3}{c}{\textit{\textbf{Performance Requirements}}}\\
     
   \hline
-   NF-07 & \textit{Description:} Class demonstrator ticket assignment shall be processed and updated for other users within 0.1s. & High \\
+   NF-07 & \textit{Description:} Class demonstrator ticket assignment shall be processed and updated for other users within 0.1s. & S \\
   \cline{2-2}
   & \textit{Rationale:} Slow assignment processing and updating could result in issues with conflicting assignment and demonstrators working on the same ticket. & \\
  
    \hline\hline
-   NF-08 & \textit{Description:} Resolution of tickets shall be processed and updated for other users within 1s. & Medium \\
+   NF-08 & \textit{Description:} Resolution of tickets shall be processed and updated for other users within 1s. & S \\
   \cline{2-2}
   & \textit{Rationale:} Ticket resolution should be processed reasonably quickly to prevent lab leads following up tickets resolved by demonstrators or demonstrators following up tickets resolved by students. & \\
   \hline
@@ -257,7 +255,7 @@ TODO: later in project, make sure table fits properly
       \multicolumn{3}{c}{\textit{\textbf{Dependability Requirements}}}\\
   
    \hline
-   NF-09 & \textit{Description:} The System shall achieve 99\% up time. & High \\
+   NF-09 & \textit{Description:} The System shall achieve 99\% up time. & S \\
   \cline{2-2}
   & \textit{Rationale:} Since students rely on the labs for help and they are only open for a small amount of time, it is critical that down time during the lab window is reduced. & \\
 \hline
@@ -265,7 +263,7 @@ TODO: later in project, make sure table fits properly
 \multicolumn{3}{c}{\textit{\textbf{Space Requirements}}}\\
    
    \hline
-   NF-10 & \textit{Description:} The system should be able to store at least 100,000 tickets. & Medium \\
+   NF-10 & \textit{Description:} The system should be able to store at least 100,000 tickets. & S \\
     \cline{2-2}
   & \textit{Rationale:} Since there are many labs for each module, which involves multiple practicals, it is important that the archive is capable of storing tickets for future reference. & \\
  \hline
