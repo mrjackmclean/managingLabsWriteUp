@@ -32,11 +32,13 @@
 % Macros
 %
 \def\school#1{\gdef\@school{#1}}
+\def\wcount#1{\gdef\@wcount{#1}}
 \def\degree#1{\gdef\@degree{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
 \def\submitdate#1{\gdef\@submitdate{#1}}
 \def\submittextA#1{\gdef\@submittextA{#1}}
 \def\submittextB#1{\gdef\@submittextB{#1}}
-\def\logo{\includegraphics[width=32mm]{stacrest.png}}
+\def\logo{\includegraphics[width=30mm]{stacrest.png}}
 \def\bibtitle#1{\gdef\@bibtitle{#1}}
 
 %
@@ -70,10 +72,12 @@
 		\thispagestyle{empty}
 		\begin{center}
     			\Huge{\textls{\@title}}\par
-			\Large\vspace*{24mm}{\textls{\@author}}\par
-			\large\vspace*{2.4mm}{\@school}\par
+			\Large\vspace*{22.4mm}{\textls{\@author}}\par
+			\Large\vspace*{2mm}{\textls{Supervisor: \@supervisor}}\par
+			\large\vspace*{2mm}{\@school}\par
+			\large\vspace*{2mm}{Wordcount: \@wcount}\par
 			\vspace*{44mm}{\logo}\par
-			\normalsize\vspace*{36mm}{\@submittextA}\par
+			\normalsize\vspace*{32mm}{\@submittextA}\par
 			\normalsize\vspace*{2mm}{\emph{\@degree}}\par
 			\normalsize\vspace*{2mm}{\@submittextB}\par
 			\normalsize\vspace*{8mm}{\@submitdate}
