@@ -1,19 +1,102 @@
-\chapter{Design}
-https://www.overleaf.com/project/60c318880cc1ad002b3e339c
-The following chapter shall discuss the planning and design choices of the system. 
+\chapter{Requirements Specification}
+In this chapter we shall outline the system requirements. The first section shows a \gls{uml} use case diagram, used to explore and convey uses of the system in order to help derive requirements. The second section defines the requirements outright.
 
-The system has four different types of stakeholder - the students, the class demonstrator, the lab lead and the system administrator. The system administrator role was designed with the intention of being managed by course organisers.
+\section{Use Case}
+
+\subsection{Use Case Diagram}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{5requirements/images/useCase.png}
+    \caption{Use case diagram for lab management system.}
+    \label{fig:useCase}
+\end{figure}
+
+\subsection{Use Case Specifications}
+
+\subsection*{`Create Ticket Draft' Use Case Specification}
+\begin{table}[H]
+\centering
+ \begin{tabular}{p{0.27\linewidth}  p{0.67\linewidth}}
+ \textbf{Use case name} & \textbf{Post Ticket}  \\
+ Use case ID & 1\\
+ Brief Description & A student creates a ticket draft on the system.\\
+ Preconditions & The student is a registered and verified, the lab is open.\\
+ Primary actors & Student. \\
+ Secondary actors & \textbf{None.} \\
+ Successful end condition & A new live ticket is posted onto the system for class demonstrators to view. \\
+ Failed end condition & The ticket listing is rejected. \\
+ Main flow & Steps:\\
+ & 1. The use case starts when a student tries to visit the `post a ticket' page.\\
+ & 2. The system checks that the user is logged in as a registered, verified account with student role privileges. \\
+ & 3. The `post a ticket' page is opened. \\
+ & 4. The student inputs the details of the issue - associated module, relevant practical or worksheet, the issue category and a description issue.\\
+ & 5. The student submits the information. \\
+ & 6. The system checks that the student has not posted a ticket in the last 3 minutes. \\
+ & 7. The system checks that the ticket does not contain offensive or abusive language. \\
+ & 8. The system checks that no archived, resolved tickets are highly similar to the draft ticket.\\
+ & 9. The new ticket is posted on the application.\\
+
+ Extension & Step\hspace{0.3cm} Branching Action \\
+ & 2.1 \hspace{0.5cm}The user is not logged in as a registered, verified student. \\
+ & 2.2 \hspace{0.5cm}Access to the `post a ticket' page is denied. \\
+ & 6.1 \hspace{0.5cm}The student has posted a ticket in the last 3 minutes. \\
+ & 6.2 \hspace{0.5cm}The system does not post the ticket, shows an error message modal. \\
+ & 7.1 \hspace{0.5cm} The ticket contains offensive or abusive language.\\
+ & 7.2 \hspace{0.5cm} The system does not post the ticket, shows an error message modal and logs the ticket for review by a lab lead.\\
+ & 8.1 \hspace{0.5cm} The draft ticket is highly similar to one or more archived, resolved tickets.\\
+ & 8.2 \hspace{0.5cm} The system allows the student to view the similar ticket(s).\\
+ & 8.3 \hspace{0.5cm} The student selects `this solved my problem' on a ticket.\\
+ & 8.4 \hspace{0.5cm} The system records the selection of the archived ticket and discards the student's draft ticket.\\
+ & 8.3.1 \hspace{0.5cm} The student selects `this does not help'.\\
+ & 8.3.2 \hspace{0.5cm} The new ticket is posted on the application.\\
+ 
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection*{`Resolve Ticket' Use Case Specification}
+\begin{table}[H]
+\centering
+ \begin{tabular}{p{0.27\linewidth}  p{0.67\linewidth}}
+ \textbf{Use case name} & \textbf{Resolve Ticket}  \\
+ Use case ID & 2\\
+ Brief Description & A class demonstrator resolves a student's issue ticket.\\
+ Preconditions & The ticket is live and not assigned to any class demonstrators.\\
+ Primary actors & Class Demonstrator. \\
+ Secondary actors & Student. \\
+ Successful end condition & The ticket is marked as resolved. \\
+ Failed end condition & The ticket is mark as closed but unresolved. \\
+ Main flow & Steps:\\
+ & 1. The use case starts when a class demonstrator attempts to visit the live tickets page.\\
+ & 2. The system checks that the user is logged in as a registered, verified account with class demonstrator role privileges. \\
+ & 3. The live ticket page is opened and shows a queue of all unresolved, not closed tickets that were posted in the current lab. \\
+ & 4. The class demonstrator selects a ticket in the queue.\\
+ & 5. The class demonstrator assigns themselves to the ticket. \\
+ & 6. The class demonstrator sends the student a live chat, either explaining the solution, asking for more information or requesting a video chat. \\
+ & 7. The class demonstrator solves the student's problem and marks the issue ticket as resolved. \\
+ & 8. The class demonstrator is given the option to store a solution to the problem on the system.\\
+ & 9. The ticket is archived on the system.\\
+
+ Extension & Step\hspace{0.3cm} Branching Action \\
+ & 2.1 \hspace{0.5cm}The user is not logged in as a registered, verified class demonstrator. \\
+ & 2.2 \hspace{0.5cm}Access to the live ticket page is denied. \\
+ & 7.1 \hspace{0.5cm} The class demonstrator cannot solve the problem.\\
+ & 7.2 \hspace{0.5cm} The ticket is closed, marked unresolved, and the system logs the ticket for review by a lab lead.\\
+  
+\end{tabular}
+\end{table}
 
 \section{System Requirements}
 
-TODO stakeholders ?
+\paragraph{Stakeholders} The system has four different types of stakeholder - the students, the class demonstrator, the lab lead and the system administrator. The system administrator role was designed with the intention of being managed by course organisers.
 
-\subsection{TODO User Stories}
+\subsection{TODO? User Stories}
 
 \newpage
 \subsection{Functional Requirements}
 
-The following requirements list is prioritised using the \gls{moscow} technique, reducing the indecision associated with simpler prioritisation. They are split with the view that no more than 60\% of effort should be spent on `Must Have' requirements of the project, along with a sensible pool of `Could Haves' of around 20\% effort. \cite{dsdm}.
+The following requirements list is prioritised using the \gls{moscow} technique, reducing the indecision associated with simpler prioritisation. They are split with the view that no more than 60\% of effort should be spent on `Must Have' requirements of the project, along with a sensible pool of `Could Haves' of around 20\% effort \cite{dsdm}.
 
 TODO: sort table by priority?
 TODO: later in project, make sure table fits properly
@@ -114,9 +197,9 @@ TODO: later in project, make sure table fits properly
 
   
 \hline\hline
- F-14 & \textit{Description:} Lab leads should be able to ban or suspend users from the system. & C\\
+ F-14 & \textit{Description:} Lab leads should be able to disable user accounts from the system. & C\\
   \cline{2-2}
-  & \textit{Rationale:} This allows lab leads to remove users for inappropriate behaviour or posting excessively. & \\
+  & \textit{Rationale:} This allows lab leads to remove users who are no longer students, demonstrators or alternatively for inappropriate behaviour or posting excessively. & \\
  
  \hline\hline
  F-15 & \textit{Description:} The system should not allow offensive or abusive content to be posted. & C\\
@@ -124,7 +207,7 @@ TODO: later in project, make sure table fits properly
   & \textit{Rationale:} Prevents offensive behaviour. & \\
  
  \hline\hline
- F-16 & \textit{Description:} The system should not allow students to post more than one ticket every 3 minutes. & C\\
+ F-16 & \textit{Description:} The system should not allow students to have more than one live ticket. & C\\
   \cline{2-2}
   & \textit{Rationale:} This prevents individual students from posting an excessive number of tickets on the system. TODO: should this be 3 minutes? limit to number of req per lab instead??? & \\
  
@@ -275,93 +358,4 @@ TODO: later in project, make sure table fits properly
 \end{tabular}
 \end{table}
 
-\newpage
-\section{Use Case}
 
-\subsection{Use Case Diagram}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{5design/images/useCase.png}
-    \caption{Use case diagram for lab management system.}
-    \label{fig:useCase}
-\end{figure}
-
-\subsection{Use Case Specifications}
-
-\subsection*{`Create Ticket Draft' Use Case Specification}
-\begin{table}[H]
-\centering
- \begin{tabular}{p{0.27\linewidth}  p{0.67\linewidth}}
- \textbf{Use case name} & \textbf{Post Ticket}  \\
- Use case ID & 1\\
- Brief Description & A student creates a ticket draft on the system.\\
- Preconditions & The student is a registered and verified, the lab is open.\\
- Primary actors & Student. \\
- Secondary actors & \textbf{None.} \\
- Successful end condition & A new live ticket is posted onto the system for class demonstrators to view. \\
- Failed end condition & The ticket listing is rejected. \\
- Main flow & Steps:\\
- & 1. The use case starts when a student tries to visit the `post a ticket' page.\\
- & 2. The system checks that the user is logged in as a registered, verified account with student role privileges. \\
- & 3. The `post a ticket' page is opened. \\
- & 4. The student inputs the details of the issue - associated module, relevant practical or worksheet, the issue category and a description issue.\\
- & 5. The student submits the information. \\
- & 6. The system checks that the student has not posted a ticket in the last 3 minutes. \\
- & 7. The system checks that the ticket does not contain offensive or abusive language. \\
- & 8. The system checks that no archived, resolved tickets are highly similar to the draft ticket.\\
- & 9. The new ticket is posted on the application.\\
-
- Extension & Step\hspace{0.3cm} Branching Action \\
- & 2.1 \hspace{0.5cm}The user is not logged in as a registered, verified student. \\
- & 2.2 \hspace{0.5cm}Access to the `post a ticket' page is denied. \\
- & 6.1 \hspace{0.5cm}The student has posted a ticket in the last 3 minutes. \\
- & 6.2 \hspace{0.5cm}The system does not post the ticket, shows an error message modal. \\
- & 7.1 \hspace{0.5cm} The ticket contains offensive or abusive language.\\
- & 7.2 \hspace{0.5cm} The system does not post the ticket, shows an error message modal and logs the ticket for review by a lab lead.\\
- & 8.1 \hspace{0.5cm} The draft ticket is highly similar to one or more archived, resolved tickets.\\
- & 8.2 \hspace{0.5cm} The system allows the student to view the similar ticket(s).\\
- & 8.3 \hspace{0.5cm} The student selects `this solved my problem' on a ticket.\\
- & 8.4 \hspace{0.5cm} The system records the selection of the archived ticket and discards the student's draft ticket.\\
- & 8.3.1 \hspace{0.5cm} The student selects `this does not help'.\\
- & 8.3.2 \hspace{0.5cm} The new ticket is posted on the application.\\
- 
-\end{tabular}
-\end{table}
-
-\newpage
-\subsection*{`Resolve Ticket' Use Case Specification}
-\begin{table}[H]
-\centering
- \begin{tabular}{p{0.27\linewidth}  p{0.67\linewidth}}
- \textbf{Use case name} & \textbf{Resolve Ticket}  \\
- Use case ID & 2\\
- Brief Description & A class demonstrator resolves a student's issue ticket.\\
- Preconditions & The ticket is live and not assigned to any class demonstrators.\\
- Primary actors & Class Demonstrator. \\
- Secondary actors & Student. \\
- Successful end condition & The ticket is marked as resolved. \\
- Failed end condition & The ticket is mark as closed but unresolved. \\
- Main flow & Steps:\\
- & 1. The use case starts when a class demonstrator attempts to visit the live tickets page.\\
- & 2. The system checks that the user is logged in as a registered, verified account with class demonstrator role privileges. \\
- & 3. The live ticket page is opened and shows a queue of all unresolved, not closed tickets that were posted in the current lab. \\
- & 4. The class demonstrator selects a ticket in the queue.\\
- & 5. The class demonstrator assigns themselves to the ticket. \\
- & 6. The class demonstrator sends the student a live chat, either explaining the solution, asking for more information or requesting a video chat. \\
- & 7. The class demonstrator solves the student's problem and marks the issue ticket as resolved. \\
- & 8. The class demonstrator is given the option to store a solution to the problem on the system.\\
- & 9. The ticket is archived on the system.\\
-
- Extension & Step\hspace{0.3cm} Branching Action \\
- & 2.1 \hspace{0.5cm}The user is not logged in as a registered, verified class demonstrator. \\
- & 2.2 \hspace{0.5cm}Access to the live ticket page is denied. \\
- & 7.1 \hspace{0.5cm} The class demonstrator cannot solve the problem.\\
- & 7.2 \hspace{0.5cm} The ticket is closed, marked unresolved, and the system logs the ticket for review by a lab lead.\\
-  
-\end{tabular}
-\end{table}
-
-
-\newpage
-\section{TODO Sequence Diagram}
