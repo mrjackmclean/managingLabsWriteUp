@@ -32,15 +32,16 @@ We represent the components of the systems as the following entities.
  \hline
  \textbf{Entity Set} & \textbf{Attributes}\\ 
  \hline
-  user & \underline{studentId}, name, userType, password, loginStatus\\ 
+  user & \underline{userId}, name, userType, password, loginStatus\\ 
  \hspace{6pt}user.student & enrolledModules\\ 
  \hspace{6pt}user.demonstrator & demonstratedModules\\
  \hspace{12pt}user.demonstrator.labLead & ledModules\\
  sysAdmin & \underline{username}, password\\ 
  ticket & \underline{ticketId}, category, issueDescription, module,\\
- & practical, attachedFiles, comments, resolutionStatus \\
+ & practical, resolutionStatus \\
+ attachment & \underline{attachmentId}, file, caption \\
  lab & \underline{labId}, openTime, closeTime, demonstrators\\
- solution & \underline{solutionId}, category, solutionText, attachedFiles\\
+ solution & \underline{solutionId}, category, solutionDescription\\
  \hline
 \end{tabular}
 \caption{Table of entities and associated attributes.}
@@ -77,11 +78,23 @@ We denote many as M, one as 1 such that one to many relationship would be denote
  \textbf{Relationship} & \textbf{Relationship Attributes} & \textbf{Entity Sets} & \textbf{Participation} & \textbf{Cardinality}\\ 
  \hline
  creates & creation\_timestamp & user.student, ticket & partial, total & 1-M \\
- manages & demAssigned\_timestamp & user.demonstrator, ticket & partial, partial & 1-M\\
+ assignedTo & demAssigned\_timestamp & user.demonstrator, ticket & partial, partial & 1-M\\
  writes & demSolved\_timestamp & user.demonstrator, solution & partial, total & M-M\\
- leads & & user.demonstrator.labLead, lab & partial, total & 1-M \\
+ leads & & user.demonstrator.labLead, lab & partial, total & 1-M\\
+ hasAttachment & attach\_timestamp & ticket, attachment & partial, partial & 1-M\\
+ hasAttachment & attach\_timestamp & solution, attachment & partial, partial & 1-M\\
+ postedIn & posted\_timestamp & ticket, lab & total, partial & M-1\\
  \hline
 \end{tabular}}
 \caption{Table showing entities, relationships between, relationship attributes, participation and cardinality.}
 \end{table}
 \FloatBarrier
+
+\subsubsection{Entity Relationship Diagram}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{7design/images/ER.png}
+    \caption{\gls{er} diagram for the system.}
+    \label{fig:ER}
+\end{figure}
