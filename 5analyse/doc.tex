@@ -2,18 +2,33 @@
 
 This chapter shall discuss some key aspects of the current system, as well as representative examples of both incident and classroom management tools.
 
+The systems shall be analysed using the following criteria:
+
+\begin{itemize}
+    \item Accessibility, as per the the guidelines by W3 \cite{wcag}.
+    \item Functionality, as outlined in the requirements specification in \autoref{chap:req}.
+    \item Performance.
+    \item Ease of Use.
+    \item Customisation.
+    \item Compatibility.
+    \item Robustness.
+    \item Cost.
+\end{itemize}
+
 \section{Current System}
 
 \paragraph{Accessibility}
-The current system meets the end user basic needs reasonably well. As a result of its integration with Microsoft Teams \cite{teams}, the form and navigation to it meet standard accessibility requirements \cite{formaccess} \cite{teamsaccess}. TODO worth mentioning this ? should this be a category?
-
+The current system meets the end user basic needs reasonably well. As a result of its integration with Microsoft Teams \cite{teams}, the form and navigation to it meet standard accessibility requirements \cite{formaccess} \cite{teamsaccess}. 
 
 \paragraph{Functionality}
-For students, the functionality of the software is adequate. The form provides a method of posting issues to demonstrators. However, there are some further areas of functionality that the current system fails. The form does not given any indication of how busy the current lab is. Also, there are no means to withdraw a form from the demonstrators' Microsoft List after posting. Further, the lab form allows students to post tickets outwith lab hours, meaning that they may wait some time (expecting a solution) before receiving a manual response about the lab being closed. Additionally, there is no simple way to access the help that other students received for similar issues - although an FAQ tab exists in Microsoft Teams \cite{teams}, it requires manual recognition of common problems and updating, meaning that the amount of solutions collected is significantly lower than with an automated system. It is also difficult to allow students to view solutions as they are often explained whilst looking at students' code, meaning that other students would be able to screen capture. This is one of the major flaws with all of the online systems we are analysing - they deny all of the benefits arising from collaboration or working in a shared space.
+
+TODO - upon final and revised requirement specification, compare current system, classroomQ and spiceworks against achieved system requirements!
+
+For students, the functionality of the software is adequate. The form provides a method of posting issues to demonstrators. However, there are some further areas of functionality that the current system fails. The form does not given any indication of how busy the current lab is. Also, there are no means to withdraw a form from the demonstrators' Microsoft List after posting. Further, the lab form allows students to post tickets outwith lab hours, meaning that they may wait some time (expecting a solution) before receiving a manual response about the lab being closed. Additionally, there is no simple way to access the help that other students received for similar issues - although an FAQ tab exists in Microsoft Teams \cite{teams}, it requires manual recognition of common problems and updating, meaning that the amount of solutions collected is significantly lower than with an automated system. It is also difficult to allow students to view solutions without enabling academic misconduct - this is because solutions are often explained whilst viewing students' code, meaning that enabling other students to view the explanation would also mean enabling them to screen capture. This is one of the major flaws with all of the online systems discussed here. Although students should not collaborate on assessed coursework, the online systems discussed deny all of the benefits arising from collaboration or working in a shared space. For example, in an in-person lab, demonstrators may give an explanation to a common mistake that other students could overhear - something that is not possible with the online systems.
         
 For class demonstrators, the functionality is fairly adequate. The Microsoft List contains information on posted student issues, with the bonus of real-time updates from other demonstrators. There are functionality pitfalls for demonstrators too. One comes from the fact that the request form does not require much information about the problem, for example a minimum length of description or issue category, meaning that demonstrators do not have a lot of information before speaking to the student. Also, there is no functionality regarding lab opening hours - meaning that demonstrators must manually reply to all requests posted outwith lab hours.
 
-For lab leads, there is no additional functionality. Lab leads must manually analyse the Microsoft List or Microsoft Teams \cite{teams} channel in order to gain further information. 
+For lab leads, there is no additional functionality. Lab leads must manually analyse the Microsoft List or Microsoft Teams \cite{teams} channel in order to gain further information. The Microsoft Sharepoint List can be exported to excel for the lab lead to perform their own analysis on collected data, however the only time related data collected is the time of the original request from the student.
 
 \paragraph{Performance}  
 When used correctly by both class demonstrators and students, the system performs basic functionality well. The issue with the system is that it consists of multiple communicating platforms, however each platform is owned and maintained to a high standard by Microsoft. Performance issues could arise if applications were to be updated.

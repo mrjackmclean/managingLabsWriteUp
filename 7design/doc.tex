@@ -1,8 +1,6 @@
 \chapter{Design}
 The following chapter shall discuss the planning and design choices of the system. 
 
-
-
 \newpage
 \section{TODO Sequence Diagram}
 
@@ -32,11 +30,11 @@ We represent the components of the systems as the following entities.
  \hline
  \textbf{Entity Set} & \textbf{Attributes}\\ 
  \hline
-  user & \underline{userId}, name, password, loginStatus\\ 
+  user & \underline{username}, name\\ 
  \hspace{6pt}user.student & \\ 
  \hspace{6pt}user.demonstrator & \\
  \hspace{12pt}user.demonstrator.labLead & \\
- sysAdmin & \underline{username}, password\\ 
+ auth & \underline{username}, password, role \\
  ticket & \underline{ticketId}, issueDescription,\\
  & practical, resolutionStatus \\
  attachment & \underline{attachmentId}, file, caption \\
@@ -88,11 +86,12 @@ We denote many as M, one as 1 such that one to many relationship would be denote
  postedIn &  & ticket, lab & total, partial & M-1\\
  hasTicketCat & & ticket, category & total, partial & M-M\\
  hasSolutionCat & & solution, category & total, partial & M-M\\
- demonstratesIn & & user.demonstrator, lab & partial, total & M-M\\
+ demonstratesInLab& & user.demonstrator, lab & partial, total & M-M\\
  enrolledInMod && user.student, module & total, partial & M-M\\
  demonstratesInMod && user.demonstrator, module & partial, partial & M-M\\
  leadsMod && user.ladLead, module & partial, partial & 1-M\\
  toDoWith && ticket, module & total, partial & M-1\\
+ hasAuth && user, auth & total, total & 1-1 \\ 
  \hline
 \end{tabular}}
 \caption{Table showing entities, relationships between, relationship attributes, participation and cardinality.}
@@ -111,28 +110,28 @@ We denote many as M, one as 1 such that one to many relationship would be denote
 \subsubsection{Relational Schema}
 The first task is to translate the given E-R model into corresponding database schema below.\\
 
-\noindent student - \underline{userId}, name, password, loginStatus, enrolledModules \\
-demonstrator - \underline{userId}, name, password, loginStatus, demonstratedModules \\
-labLead - \underline{userId}, name, password, loginStatus, demonstratedModules, ledModules \\
-sysAdmin - \underline{username}, password \\
-ticket - \underline{ticketId}, issueDescription, module, practical, resolutionStatus, \textit{student.userId}, creation\_timestamp, \textit{demonstrator.userId}, demAssigned\_timestamp, \textit{labId} \\
+\noindent student - \underline{\textit{username}}, name, enrolledModules \\
+demonstrator - \underline{\textit{username}}, name, demonstratedModules \\
+labLead - \underline{\textit{username}}, name, demonstratedModules, ledModules \\
+auth - \underline{username}, password, role \\
+ticket - \underline{ticketId}, issueDescription, module, practical, resolutionStatus, \textit{student.username}, creation\_timestamp, \textit{demonstrator.username}, demAssigned\_timestamp, \textit{labId} \\
 category - \underline{name} \\
 solution - \underline{solutionId}, solutionDescription\\
 attachment - \underline{attachmentId}, file, caption, \textit{ticketId}, ticket\_attach\_timestamp, \textit{solutionId}, solution\_attach\_timestamp\\
-lab - \underline{labId}, openTime, closeTime, \textit{labLead.userId}\\
-writes - \underline{\textit{demonstrator.userId}}, \underline{\textit{solutionId}}, demSolved\_timestamp\\
+lab - \underline{labId}, title, openTime, closeTime, \textit{labLead.username}\\
+writes - \underline{\textit{demonstrator.username}}, \underline{\textit{solutionId}}, demSolved\_timestamp\\
 hasTicketCat - \underline{\textit{tickedId}}, \underline{\textit{name}}\\
 hasSolutionCat - \underline{\textit{solutionId}}, \underline{\textit{name}}\\
-demonstratesIn - \underline{\textit{demonstrator.userId}}, \underline{\textit{labId}}\\
-module - \underline{moduleCode}, name, \textit{labLead.userId}\\
-enrolledInMod - \underline{\textit{student.userId}}, \underline{\textit{moduleCode}}\\
-demonstratesInMod - \underline{\textit{demonstrator.userId}}, \underline{\textit{moduleCode}}\\
+demonstratesInLab- \underline{\textit{demonstrator.username}}, \underline{\textit{labId}}\\
+module - \underline{moduleCode}, name, \textit{labLead.username}\\
+enrolledInMod - \underline{\textit{student.username}}, \underline{\textit{moduleCode}}\\
+demonstratesInMod - \underline{\textit{demonstrator.username}}, \underline{\textit{moduleCode}}\\
 
 \subsubsection{Relational Schema Diagram}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{7design/images/relationalSchema.png}
+    \includegraphics[width=0.8\textwidth]{7design/images/relationalSchema.png}
     \caption{Relational schema diagram for the system.}
     \label{fig:relationalschema}
 \end{figure}
@@ -142,54 +141,53 @@ A data type must be specified for each attribute. Table \ref{table:atypetable} b
 
 \begin{table}[H]
 \centering
-\begin{tabular}{| c | c | c |}
+\begin{tabular}{| c | c | c | c |}
 \hline
- Relational Table & Attribute & Attribute Type \\ 
+ Relational Table & Attribute & Attribute Type & Notes\\ 
  \hline
-  category & name & ? \\
+  category & name & VARCHAR(70) & Government data standards\cite{dataStandards}\\
   \hline
-  ticket & ticketId & \\
-  & issueDescription & \\
-  & practial & \\
-  & resolutionStatus & \\
-  & creation\_timestamp & \\
-  &  demAssigned\_timestamp & \\
+  ticket & ticketId & INT & Auto incremented by DB.\\
+  & issueDescription & VARCHAR(2000)&\\
+  & practical & VARCHAR(6)&preset list?\\
+  & resolutionStatus & VARCHAR(8)&[new, missed, inProgress, closed]\\
+  & creation\_timestamp & DATE &\\
+  &  demAssigned\_timestamp & DATE &\\
   \hline 
-  attachment & attachmentId & \\
-  & file & \\
-  & caption & \\
-  & ticket\_attach\_timestamp & \\
-  & solution\_attach\_timestamp & \\
+  attachment & attachmentId & INT & Auto incremented by DB.\\
+  & file & BLOB &\\
+  & caption & VARCHAR(150) & \\
+  & ticket\_attach\_timestamp & DATE &\\
+  & solution\_attach\_timestamp & DATE& \\
   \hline
-  solution & solutionId & \\
-  & solutionDescription & \\
+  solution & solutionId & INT&Auto incremented by DB.\\
+  & solutionDescription & VARCHAR(2000)&\\
   \hline
-  writes & demSolved\_timestamp & \\
+  writes & demSolved\_timestamp & DATE &\\
   \hline
-  sysAdmin & username & \\
-  & password & \\
+  sysAdmin & username & VARCHAR(16) &\\
+  & password & CHAR(60) & hashed password\\
   \hline
-  student & name & \\
-  & loginStatus & \\
-  & userId & \\
-  & password & \\
+  student & name & VARCHAR(70) & Government data standards\cite{dataStandards}\\
+  & username & INT&studentnumber details?\\
+  & password & CHAR(60)&hashed password\\
   \hline
-  lab & labId & \\
-  & openTime & \\
-  & closeTime & \\
+  lab & labId & INT&Auto incremented by DB.\\
+  & title & VARCHAR(70) & \\
+  & openTime & DATE &\\
+  & closeTime & DATE &\\
   \hline
-  demonstrator & userId & \\
-  & name & \\
-  & loginStatus & \\
-  & password & \\
+  demonstrator & username & VARCHAR(16)&\\
+  & name & VARCHAR(70)& Government data standards\cite{dataStandards}\\
+  & password & CHAR(60) &hashed password\\
   \hline
-  labLead & userId & \\
-  & name & \\
-  & password &  \\
-  & loginStatus & \\
+  labLead & username & VARCHAR(16)&\\
+  & name & VARCHAR(70) & Government data standards\cite{dataStandards}\\
+  & password & CHAR(60)& hashed password\\
   \hline
-  module & moduleCode & \\
-  & name & \\
+  module & moduleCode & CHAR(6) & Fixed type [A-Z]\{2\}\arraybackslash \textbackslash d\{4\}
+\\
+  & name & VARCHAR(70)& Government data standards\cite{dataStandards}\\
  \hline
  
  \hline
@@ -198,6 +196,12 @@ A data type must be specified for each attribute. Table \ref{table:atypetable} b
 \label{table:atypetable}
 \end{table}
 
-The Government Data Standards Catalogue\cite{dataStandards} was referenced for data types of name, address line, number, email, account number. The logical extension was to apply the name data type to supplier name, genre\_name, author, publisher. For country.name, we also allow 70 characters - even though this is excessive, we allow for the possible entry of countries with longer names. The attributes `customer\_address\_country' and `deliv\_add\_country' are stored using a 3 digit code, defined by the ISO 3166-1 standard\cite{iso}. Although the Government Data Standards Catalogue had a reference for postcodes of VARCHAR(8), it was for UK postcodes - international postcodes/area codes could be longer and so the data type VARCHAR(35) was chosen to keep it in line with the address line attributes.
+The Government Data Standards Catalogue\cite{dataStandards} was referenced for the data types corresponding to names - including logical extension to category and module names. 
 
-For the rating attribute, we assume that rating is given and stored in 1 d.p. increments from 0 to 5. We assume that no book that the store buys or sells will cost more than £9999.99 - assuming the currency is in GBP. Another assumption we make is that editions can come in 0.1 increments, and that no book has edition over `999.99'. The data type INT was selected for IDs, this is because we do not know the scale or projected scale of the store and so can store a large number of values - it also allows us to implement automatic incrementing for the ID attributes in SQL. The value MEDIUMINT was considered for IDs, to improve scan time at the cost of possible number of values, however because I was unsure of the scale of the bookstore so I erred on the side of caution with INT. We should note the fact that ISBNs cannot be used as, in the ER diagram given, the relationship between book and edition is not one to one - implying that different editions and types of a book will have one ID. Note that the different IDs could be formatted in different ways. The attribute type was store as CHAR(9) - this is because the type must be one of `audiobook', `hardcover' or `paperback', each being nine characters long. 
+ID data types are defined as INT,auto increment from db. 
+
+\subsection{choices}
+
+-react / enterprise level -> load balancing
+-why sql
+-data access object
