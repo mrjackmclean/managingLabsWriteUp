@@ -1,8 +1,9 @@
 %
-% StACS PhD thesis document class
-% Lakshitha de Silva
-% v0.2
-% 2014
+% Thesis - Main
+% Jack McLean
+% School of Computer Science
+% University of St Andrews, Scotland, UK
+% 2021
 %
 
 \NeedsTeXFormat{LaTeX2e}

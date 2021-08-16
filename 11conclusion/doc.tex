@@ -1,0 +1,26 @@
+\chapter{Conclusion}
+
+The overall goal of this project was to create a custom system for the School that can be used to manage students’ requests for practical programming assistance in lab sessions. Of the objectives outlined at the start, the project was successful in completing all primary and secondary objectives, as well as tertiary objectives 2, 4 as well and partially 5. The final pieces of work produced for this project are this dissertation report and the working, complete `codeHelper' application.
+
+The goal of this project was achieved by developing a bespoke, interactive system that has been successfully deployed on the School host server and is compatible with modern browsers. It allows the creation and management of `issue tickets', communication between students and staff via live text, video and screen sharing chat and it allows lab lead accounts to view statistical summaries of lab sessions. 100\% of class demonstrators that tested the system said that it was `much better' than the current system \ref{fig:dem18}.
+
+\begin{comment}
+This dissertation discussed the work that was involved in producing the `codeHelper' application. Firstly, the dissertation introduces the context for the project - the history of lab management, current situation with regards to the global pandemic and the motives for developing a new system. Secondly, a study of related work was carried out to gather evidence and inspiration for the new system in question. Then, the requirements of the system were outlined before a discussion of the design, implementation, testing and software engineering processes. Finally, the system was evaluated by the product owner/customer and by volunteering students and class demonstrators.
+\end{comment}
+
+The current system was reviewed along with two related systems. These were analysed with respect to usability factors, with strengths and weaknesses being identified. The codeHelper system was developed to address these weaknesses and meet customer requirements. codeHelper was assessed against the usability factors and customer requirements and was found to provide more of the required features than the existing systems. A user study confirmed the benefits of codeHelper, with users finding the system functional and easy to use. Some ares for improvement were identified. The most critical of these were immediately addressed with some being left for future work.
+
+\section{Limitation and Future Work}\label{sec:futurework}
+
+Due to the level of trust in the organisation, the main focus of security in the codeHelper application is on the students. Lab leads are able to assign other lab leads, without approval, and make key changes to the modules, labs and user roles in the system. Less focus was placed on the importance of security for users with staff roles due to the nature of the organisation and use of the application, as well as the time constraints of the project - any future work on the project should scrutinise the possibility of malicious staff and address the security concerns.
+
+Google Lighthouse \cite{Lighthouse} identified some key opportunities to improve performance in the application. There are two main key opportunities. The first, an opportunity to save 0.72s on load, is to reduce unused Javascript and defer loading scripts until they are required to decrease bytes consumed by network activity. This could be implemented with code splitting or `React.lazy', a means of rendering a dynamic import as a regular component \cite{codesplit}. The second opportunity would be to thoroughly consider implementing an efficient cache policy to store static files on the client side, enabling faster page loads.
+
+A further limitation was that the user study was small and would benefit from a larger participant base before final results can be considered conclusive.
+
+The stack architecture, discussed in \ref{sec:architecture}, was changed was originally designed to run on the express server, reducing the setup, management and complexity of the back-end. The PeerJS had to reconfigured to run separately - outwith, and on a different port to, the express server. This was done because there were issues regarding traffic and compatibility issues regarding the naming of websocket routes in the stack. 
+
+As outlined by some of the `would' requirements, the system would benefit from a few additional features. Recommendation of past tickets and their answers to students, refactoring of the mobile view of the video call and allowing lab leads to suspend users are all minor features that the application could benefit from. The evaluation, discussed in section \ref{sec:experiment}, highlighted that a feature which improves students' awareness of demonstrators and awareness of wait time would improve the system.
+
+
+

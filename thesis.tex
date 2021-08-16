@@ -19,6 +19,7 @@
 \usepackage{tabulary}
 \usepackage{booktabs}
 \usepackage{listings}
+\usepackage{pdfpages}
 \usepackage{enumitem}
 \usepackage{pifont}
 \usepackage[nointegrals]{wasysym}
@@ -27,7 +28,7 @@
 \usepackage{textcomp}
 \usepackage[font=small,labelfont=bf,skip=16pt]{caption}
 \usepackage{hyperref}
-\usepackage{natbib}
+\usepackage[square,sort,comma,numbers]{natbib}
 \usepackage{float}
 \usepackage{placeins}
 \usepackage{booktabs,caption,fixltx2e}
@@ -36,6 +37,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[toc]{glossaries}
 \usepackage{hyperref}
+\usepackage{comment}
+\usepackage{subcaption}
+
 
 
 \makeglossaries
@@ -57,7 +61,6 @@
 	basicstyle=\footnotesize\ttfamily\singlespacing,
 	showstringspaces=false,
 	keywordstyle=\color[RGB]{0, 0, 240},
-	stringstyle=\color[RGB]{240, 0, 0},
 	commentstyle=\color[RGB]{0, 144, 0},
 	numberstyle=\tiny,
 	basewidth=0.54em,
@@ -140,7 +143,7 @@
 %
 \begin{document}
 \hypersetup{pageanchor=false}
-\title{\textbf{Managing Labs}\\Developing Lab Management Software for the New Normal}
+\title{\textbf{Managing Labs}\\codeHelper - Developing Lab Management Software for the New Normal}
 \author{Jack McLean \textbf{190025023}}
 \supervisor{Ruth Letham}
 \school{School of Computer Science}
@@ -168,7 +171,7 @@
 \tableofcontents
 \newpage\listoffigures
 \newpage\listoftables
-\newpage\lstlistoflistings
+
 
 %
 % Mainmatter properties
@@ -197,15 +200,16 @@
 \include{6swengprocess/doc}
 \include{7design/doc}
 \include{8implementation/doc}
-\include{9conclusion/doc}
+\include{9testing/doc}
 \include{10evaluation/doc}
+\include{11conclusion/doc}
 
 %
 % Appendices
 %
 \appendix
 \include{appA/doc}
-\include{appB/doc}
+
 
 
 %
@@ -216,7 +220,7 @@
 %
 % Bibliography
 %
-\bibliographystyle{apalike}
+\bibliographystyle{ieeetr}
 \bibliography{thesis}
 
 \end{document}

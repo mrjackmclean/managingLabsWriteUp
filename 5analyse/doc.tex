@@ -1,8 +1,8 @@
-\chapter{Analysing Existing Tools}
+\chapter{Analysing Existing Tools}\label{chap:existingtools}
 
-This chapter shall discuss some key aspects of the current system, as well as representative examples of both incident and classroom management tools.
+The current system and two representative examples of incident and classroom management tools were introduced in the context survey in chapter \ref{chap:context}. This chapter presents a more in depth analysis of these systems with respect to common criteria and the identified used requirements.
 
-The systems shall be analysed using the following criteria:
+The systems have been analysed using the following criteria:
 
 \begin{itemize}
     \item Accessibility, as per the the guidelines by W3 \cite{wcag}.
@@ -18,15 +18,13 @@ The systems shall be analysed using the following criteria:
 \section{Current System}
 
 \paragraph{Accessibility}
-The current system meets the end user basic needs reasonably well. As a result of its integration with Microsoft Teams \cite{teams}, the form and navigation to it meet standard accessibility requirements \cite{formaccess} \cite{teamsaccess}. 
+As a result of its integration with Microsoft Teams \cite{teams}, the form and navigation to it meet standard accessibility requirements \cite{formaccess} \cite{teamsaccess}. 
 
 \paragraph{Functionality}
 
-TODO - upon final and revised requirement specification, compare current system, classroomQ and spiceworks against achieved system requirements!
+The software meets the minimum basic requirements of the system, allowing students to post requests and demonstrators to assign themselves and respond. However, it does not provide any additional desirably functionality. The form does not give any indication of how busy the current lab is. There are no means to withdraw a form from the demonstrators' Microsoft List after posting. The lab form allows students to post tickets outwith lab hours, meaning that they may wait some time (expecting a solution) before receiving a manual response about the lab being closed. There is no simple way to access the help that other students received for similar issues - although an FAQ tab exists in Microsoft Teams \cite{teams}, it requires manual recognition of common problems and updating, meaning that the amount of solutions collected is significantly lower than with an automated system. 
 
-For students, the functionality of the software is adequate. The form provides a method of posting issues to demonstrators. However, there are some further areas of functionality that the current system fails. The form does not given any indication of how busy the current lab is. Also, there are no means to withdraw a form from the demonstrators' Microsoft List after posting. Further, the lab form allows students to post tickets outwith lab hours, meaning that they may wait some time (expecting a solution) before receiving a manual response about the lab being closed. Additionally, there is no simple way to access the help that other students received for similar issues - although an FAQ tab exists in Microsoft Teams \cite{teams}, it requires manual recognition of common problems and updating, meaning that the amount of solutions collected is significantly lower than with an automated system. It is also difficult to allow students to view solutions without enabling academic misconduct - this is because solutions are often explained whilst viewing students' code, meaning that enabling other students to view the explanation would also mean enabling them to screen capture. This is one of the major flaws with all of the online systems discussed here. Although students should not collaborate on assessed coursework, the online systems discussed deny all of the benefits arising from collaboration or working in a shared space. For example, in an in-person lab, demonstrators may give an explanation to a common mistake that other students could overhear - something that is not possible with the online systems.
-        
-For class demonstrators, the functionality is fairly adequate. The Microsoft List contains information on posted student issues, with the bonus of real-time updates from other demonstrators. There are functionality pitfalls for demonstrators too. One comes from the fact that the request form does not require much information about the problem, for example a minimum length of description or issue category, meaning that demonstrators do not have a lot of information before speaking to the student. Also, there is no functionality regarding lab opening hours - meaning that demonstrators must manually reply to all requests posted outwith lab hours.
+The Microsoft List contains information on posted student issues, with the bonus of real-time updates from other demonstrators. However, the request form does not require much information about the problem, for example a minimum length of description or issue category, meaning that demonstrators may not have a lot of information before speaking to the student. Also, there is no functionality regarding lab opening hours - meaning that demonstrators must manually reply to all requests posted outwith lab hours.
 
 For lab leads, there is no additional functionality. Lab leads must manually analyse the Microsoft List or Microsoft Teams \cite{teams} channel in order to gain further information. The Microsoft Sharepoint List can be exported to excel for the lab lead to perform their own analysis on collected data, however the only time related data collected is the time of the original request from the student.
 
@@ -34,59 +32,67 @@ For lab leads, there is no additional functionality. Lab leads must manually ana
 When used correctly by both class demonstrators and students, the system performs basic functionality well. The issue with the system is that it consists of multiple communicating platforms, however each platform is owned and maintained to a high standard by Microsoft. Performance issues could arise if applications were to be updated.
 
 \paragraph{Ease of Use} 
-For students, the system is fairly self explanatory and easy to use. Students simply access the form, provide information and then wait to be contacted by class demonstrators.
 
-For class demonstrators, the system is more difficult to use. Since the system is comprised of multiple platforms, each must be considered when running a lab. For example, the demonstrators are notified of a new issue in Microsoft Teams \cite{teams}, the issue ticket is located in a Microsoft List spreadsheet and then communication with the student must be carried out in teams and/or email. It is worth nothing that the increased number of platforms increase the surface area for human error.
+Both students and class demonstrators have 2 different interfaces to interact with, each of the interfaces has a different look-and-feel and is accessed through a different application. This makes the system more difficult to use than a single unified interface could be.
+
+For the student there are only two points of interaction. They must fill in a web form then wait to be contacted on Teams. To simplify the process the link to the form is provided to them through the same Teams channel in which they will be contacted by the demonstrator.
+
+Class demonstrators also only have two systems to interact with, however they must maintain sight of both and have more complex interactions with them. For example, from List to assign themselves to calls, then to teams to initiate contact, then back to List to close call. This is made more complex if the demonstrator responds to multiple requests simultaneously - managing multiple posts in a single Teams channel is made difficult by the re-ordering of posts. Accessing the FAQ, which is in another Teams channel, in order to point students at solutions exacerbates the problems with managing chats. It is worth noting that the increased switching between platforms increases the surface area for human error and reduces ease of use.
 
 
 \paragraph{Customisation} 
-Customisation in this system is reasonable. The form input fields and therefore the Microsoft List spreadsheet labels are customisable. The power automate \cite{pauto} flows (non-code scripts) are also customisable, however only within the limits of Microsoft's provided actions and applications.
+
+The system provides little to no end user customisation. It is customisable in terms of look-and-feel only with the limits provided by the end-users browser, teams installation, or operating system. Microsoft Form is customisable but only by the owner of the Form. List is customisable by individuals. The power automate \cite{pauto} flows (non-code scripts) are also customisable, by the flow owner only, however only within the limits of Microsoft's provided actions and applications.
 
 \paragraph{Compatibility}  
-The form is located in teams, along with the spreadsheet of issues for demonstrators. Communication is also carried out mostly using either the comment or video call features within Microsoft Teams. Since Microsoft Teams is the University wide standard collaboration tool for online learning, and is integrated with the University's Shibboleth \cite{shibboleth} single sign-on platform, students should already have the technology installed and working on their machines. Additionally, the Microsoft Teams mobile application and form enable students to easily post tickets from their mobile devices.
 
-TODO: cite teams every time ???
+The system is built using technologies integrated into Microsoft Office 365, so all the component parts are highly compatible. Microsoft Office 365 provides the option of in-browser or desktop applications and is compatible with all major operating systems.
+
+What is more, Microsoft Teams is the University wide standard collaboration tool for online learning, and is integrated with the University's Shibboleth \cite{shibboleth} single sign-on platform, students should already have the technology installed and working on their machines. Additionally, the Microsoft Teams mobile application and form enable students to post tickets from their mobile devices.
+
+The form is linked to, manually, in teams by the lab lead. The Microsoft List of issues for demonstrators is accessible through a tab in the Admin channel on Microsoft Teams. Communication is also carried out mostly using either the comment or video call features within Microsoft Teams.  
 
 \paragraph{Robustness}
-Robustness is where the current system fails. As discussed previously and conveyed in the activity diagram, the system is comprised of multiple, interlinked applications as well as manual input. If any of the applications are updated, down or behaving in an unexpected way then the system could fail to function - this could be difficult to detect in quieter labs and result in students waiting indefinitely on a response.
+The system's main area of fallibility is its robustness. 
+
+The system comprises multiple interlinked applications and each connection represent a potential point of failure, reducing the robustness of the system as a whole. If any of the applications are updated, down or behaving in an unexpected way then the system could fail to function - this could be difficult to detect in quieter labs and result in students waiting indefinitely on a response.
 
 
 \paragraph{Cost}  
-The current system is not free, however is covered by existing Microsoft Office licensing purchased by the university.  
+The current system is not free, however is covered by existing Microsoft Office licensing purchased by the University. The licensing could be upgraded to allow shared ownership of power automate flows.
 
 \newpage
 \section{ClassroomQ}
 
+\paragraph{Accessibility} The application's accessibility was analysed using Wave \cite{accesscheck} and Google Lighthouse \cite{Lighthouse}. It performed poorly, showing non-accessible ARIA input names, contrast ratio failings and invalid heading structure to name a few issues.
+
 \paragraph{Functionality}
-The website provides similar functionality to what we require in terms of being able to post issues, however is not suitable for a number of reasons.
+The website provides similar functionality to what is required in terms of being able to post issues, however it does not allow multiple teachers and provides no in-application interactive communication mechanisms.
 
-For students, the amount of information they can provide is extremely limited. Only a single comment box, with a maximum of 190 characters, is available and therefore restricts students from providing a detailed description of their issue. There is also no prompt for any class or issue category information. Students are also unable to have more than one live request at a time. It is useful for all parties that the class sessions can be ended - stopping requests for help being posted outwith lab hours.
+For students, the amount of information they can provide is extremely limited. Only a single comment box, with a maximum of 190 characters, is available and therefore restricts students from providing a detailed description of their issue. There is also no prompt for any class or issue category information. 
 
-For class demonstrators, only a single account can be used - the system does not allow classes to have multiple teachers. This alone makes the application unsuitable, since there is no way to organise which demonstrator is assigned to which task. The system does not contain any integrated communication methods of any type. The system's method of obtaining student names is also unsuitable for managing school labs, since students could provide any form of name - something that would introduce issues when attempting to communicate with the student on a different system. Teacher accounts are also only able to, forever, open a single class with a persistent class code, meaning that running multiple labs or different labs is not possible.
+For class demonstrators, only a single account can be used - the system does not allow classes to have multiple teachers. This alone makes the application unsuitable, since there is no way to organise which demonstrator is assigned to which task. The system does not contain any integrated communication methods of any type. The system's method of obtaining student names is also unsuitable for managing School labs, since students could provide any form of name - something that would introduce issues when attempting to communicate with the student on a different system. Teacher accounts are also only able to, forever, open a single class with a persistent class code, meaning that running multiple labs or different labs is not possible. Demonstrators can end class sessions, stopping requests for help being posted outwith lab hours.
 
-For lab leads, no functionality exists that is separate from class demonstrators. However, it is possible to export logs of students who joined, as well as their help requests, which could be analysed in another platform.
+It is possible, in the paid-for subscription level package, to export logs of students who joined and their help requests. This could be analysed in another platform.
 
 
 \paragraph{Performance}  
-It is hard to give an assessment of the system without it having been used in class. However, the application is fairly lightweight and has simple functionality so it is hard to foresee performance issues. TODO worth keeping this in?
+No performance data has been published for ClassroomQ. The site claims that pupil numbers and queue length can be unlimited in paid-for subscriptions, however experiments would need to be conducted to confirm whether there was any performance reduction as class sizes grew.
 
 \paragraph{Ease of Use}
-The system's simplicity makes it extremely easy and intuitive to use. It is also possible to use the application on mobile. 
-
-It is worth noting that for use in managing the University labs, this software would require communication on a different platform. Since the application does not enforce, or allow the enforcement of, validation of names, it would be difficult to find students on third party applications.
-
+The system is designed to be simple, easy and intuitive to use as it is to be used by any age of school pupil. 
 
 \paragraph{Customisation} 
 The application provides no options for customisation of any kind.
 
 
 \paragraph{Compatibility}  
-Being web based means that students are not required to download and install any third-party software. 
 
+The system is web-based and is compatible with all major browsers and operating systems. Students are not required to download and install any third-party software. 
 
 \paragraph{Robustness}
-As with performance, it is hard to give an assessment of the system without it having been used in class. It is, again, reasonable to expect that the application is fairly robust given its simplicity.
 
+There is no published data on ClassroomQ downtime nor any available data on service level agreements that limit downtime.
 
 \paragraph{Cost}  
 The system offers multiple membership levels which cost varying amounts. The level that would be required for the University of St.\ Andrews would be \$12.99 per year per teacher, for a minimum of 5 teacher accounts.
@@ -94,36 +100,40 @@ The system offers multiple membership levels which cost varying amounts. The lev
 \newpage
 \section{Spiceworks}
 
+\paragraph{Accessibility} The application's accessibility was analysed using Wave \cite{accesscheck} and Google Lighthouse \cite{Lighthouse}. It performed reasonably poorly, showing a lack of accessible names for buttons, alt tags for images and labelling for forms.
+
 \paragraph{Functionality}
-For students, spiceworks is functional to the point that we require for our system. The system allows tickets to be created via a customisable user portal, which can be modified to include module code, practical number and issue category in text field, text area and select inputs. The system also allows tickets to be posted by email. One issue with functionality is that some attributes are `baked-in' to the system, for example it is not possible to remove the `summary' or `description' input fields from the ticket posting form. Additionally, the system has a due date attribute for tickets that cannot be removed.
+
+Spiceworks provides all basic functionality identified in the requirements for the School labs, along with some 'added-value' features, such as usage statistics.
+
+For students, Spiceworks is almost functional to the point that is required for the lab management system. The system allows tickets to be created via a customisable user portal, which can be modified to include module code, practical number and issue category in text field, text area and select inputs. The system also allows tickets to be posted by email. One issue with functionality is that some attributes are `baked-in' to the system, for example it is not possible to remove the `summary' or `description' input fields from the ticket posting form. Additionally, the system has a due date attribute for tickets that cannot be removed.
 
 For class demonstrators, the ticket management UI functions well. It allows tickets to be assigned, edited, closed, merged with other tickets. The system also has a useful `last activity' attribute on each ticket. The privacy controls on the user portal also allow an `active directory' to be created, something that would be useful in authenticating to ensure users are students. A timeline feature on the system also shows demonstrators a time sorted list of all activities. There is no way to distinguish between tickets that have been resolved or closed unsuccessfully. 
 
-For lab demonstrators, a useful summary dashboard is provided. This provides useful infographs and key statistics such as average first response time, average ticket close time, ticket category breakdown and top ticket creators. It does not provide any information on specific class demonstrators, however Spiceworks allows the generation of summary reports which can be produced for each individual demonstrator. The system also does not have any option to prevent tickets being posted outwith lab hours, although this information could be added to an autmatic email response. It is also important to note that there are no different admin roles on Spiceworks - functionality does not differ between class demonstrators and lab leads.
+For lab demonstrators, a useful summary dashboard is provided. This provides useful infographs and key statistics such as average first response time, average ticket close time, ticket category breakdown and top ticket creators. It does not provide any information on specific class demonstrators, however Spiceworks allows the generation of summary reports which can be produced for each individual demonstrator. The system also does not have any option to prevent tickets being posted outwith lab hours, although this information could be added to an autmatic email response. There are no different admin roles on Spiceworks - functionality does not differ between class demonstrators and lab leads.
 
+One issue is that the system is designed for tech issue ticketing, therefore some of the application and documentation language refers specifically to that domain. A second issue is that communication would be carried out by email, and so is not instant, and any video communication would need to be organised by email and carried out on a third system.
 
 \paragraph{Performance}
-As with ClassroomQ, it is hard to comment on the domain specific performance. However, Spiceworks is an established, popular ticketing system and therefore a reasonable level of performance would be expected. 
-
+No performance data has been published for Spiceworks. The site does not mention any limits on the users for each help desk, therfore experiments would need to be conducted to confirm whether there was any performance reduction as class sizes grew.
 
 \paragraph{Ease of Use} 
 
-The system is fairly simple and intuitive to use for students. The administrative aspect is slightly more complex, however would be quick and easy to learn after the initial setup. One issue is that the system is designed for tech issue ticketing, therefore some of the application and documentation language refers specifically to that domain.
+The system has a single point of contact for the posting, tracking and management of tickets which provides consistency and increases ease of use. 
 
 \paragraph{Customisation} 
 
-The system is fairly customisable. It also different form attributes to be added to the user portal, therefore also to the tickets. There is no option to customise other aspects of the system, such as the summary dashboard
+The system allows different form attributes to be added to the user portal, and therefore also to the tickets, meaning that information fields such as `module code' and `practical number' can be added. There is no option to customise other aspects of the system, such as the summary dashboard.
 
 
 \paragraph{Compatibility}  
 
-This system has the advantage of being web based, meaning that users do not need to download and install third party content. It is also possible to import and export tickets in JSON form, meaning that tickets could be easily migrated to or from the system.
+This system has the advantage of being web based, meaning that users do not need to download and install third party content. It is also possible to import and export tickets in JSON form, meaning that tickets could be migrated to or from the system.
 
 \paragraph{Robustness}
-As with performance, it is hard to give an assessment of the system without it having been used in class. It is, again, reasonable to expect that the application is fairly robust given its popularity.
+There is no published data on Spiceworks downtime nor any available data onservice level agreements that limit downtime.
 
 
 \paragraph{Cost}  
-All Spiceworks products are entirely free. They are, however, funded by advertising revenue which is generated by selling data stored on Spiceworks. This could be a serious issue for the lab management domain, as students would be well within their right to refuse the service. Another problem is that Spiceworks terms of use specifies that organisations must obtain permission to use the service.
-
+All Spiceworks products are entirely free. They are, however, funded by advertising revenue which is generated by selling data stored on Spiceworks. This could be a serious issue for the lab management domain, as students would be well within their right to refuse the service. Another potential problem is that Spiceworks terms of use specifies that organisations must obtain permission to use the service.
 

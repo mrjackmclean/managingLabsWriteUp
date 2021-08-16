@@ -1,44 +1,39 @@
-\chapter{Context Survey}
-\section{Context}
-\subsection{History}
+\chapter{Context Survey} \label{chap:context}
 
-In the early 2000s, the University of St.\ Andrews' School of Computer Science had a class size of approximately 30 students. It has had a relatively rapid expansion in recent years, with class size of over 200 students. Although the student to staff ratio in manned computer laboratory sessions has remained fairly consistent throughout the years, the logistics of class management became more difficult. This increasing difficulty has been increasing educators awareness of the need for an alternative solution.
+This chapter provides a brief overview of some of the relevant aspects of online learning, followed by a description of the current workflow and systems used by the School to manage laboratories and a review of two commercially available tools that provide features that could be applied to online laboratory management.
 
-As lockdown measures were introduced in the wake of the global pandemic, the University was forced to move to online learning and the need for an alternative to in-person labs became immediate. Completely remote online teaching is a novel experience for the University, presenting many challenges. The School developed a system for managing online labs using Microsoft Teams \cite{teams}, adapting it in an ad hoc manner to improve the flow and features by integrating with additional systems such as Sharepoint Lists \cite{lists}, Forms \cite{forms} and Power Automate \cite{pauto}. The current system meets the basic needs for managing online labs, however, it lacks more sophisticated lab management facilities, such as gathering statistical data as well as searching and recommending solutions to posted problems.   
+\section{Online Learning}
 
-The School of Computer Science requires a system for managing labs that meets its specific needs. The system should be suitable for in-person, remote and dual delivery. It should enable class demonstrators to assist in the resolution of problems students have, should enable lab leads to review labs and address some of the specific nuances that the domain requires - for example addressing the lab opening times. A single application should meet these needs so that the system is easy to use, adapt and maintain.
+The world is becoming more online as a result of the global pandemic \cite{bbcinternet} \cite{ofcominternet}. That aside, many universities already want to replace in-person coding labs with online alternatives for self‐learning \cite{olsson}. Therefore, careful consideration should be given to the techniques and systems used to teach and study online. Consideration of this research and review of its conclusions could prove invaluable in identifying the most critical parts of an online lab management system. This subsection briefly discusses some key discoveries from a literature review in this area.
 
-There are some existing categories of application which could meet the above needs. A small number of classroom management tools exist in the form of queue management systems. Another, much more common, type of application are incident management tools - often used for tracking and logging IT incidents and problems. Both types of application shall be considered and evaluated in order to gain insight into their suitability.
- 
-This chapter shall discuss and review two common examples of these types of application, as well as the current system used by the school.
+The systems used by University members have a direct affect on their satisfaction with both working and studying from home \cite{tenney}. When developing any system for both home working and in-person, the aspects that affect utility and usefulness for home working must be carefully considered.
 
-\subsection{Online Learning}
+Satisfaction and a positive attitude toward work increases the likelihood that students will achieve higher productivity levels \cite{tenney}. The perceived usefulness of the tools that students have access to while \gls{wfh} will also affect productivity \cite{venka}. Student satisfaction and attitude will be directly affected by the tools and system that they use to interact with the University online which will, in turn, increase their ability to work productively \cite{safaa}. This highlights the need for the requirements of users to be carefully considered. The tool in question should provide a rich enough feature set to allow students and demonstrators to complete their tasks, however it should not overwhelm them with unnecessary, irrelevant or unused features \cite{ffatigue}. 
 
-TODO read ruth suggested papers and include
+Another important aspect of online learning is students' perceived feeling of support. One of the most importants roles of an online instructor is students feeling their `presence’ \cite{martinteams}. `Being there’ for students and `having a presence that the students felt on the course site’ is essential \cite{martin}. For this reason, any system which is used to manage labs should strive to maximise students' awareness of the demonstrators who are available to help them. 
 
-As the world becomes more online as a result of the global pandemic \cite{bbcinternet} \cite{ofcominternet}, careful consideration should be given to the techniques and systems used to teach and study online. Consideration of this research and review of its conclusions could prove invaluable in identifying the most critical parts of an online lab management system. This short subsection shall discuss some key discoveries from a literature review in this area.
+Online learning also has many disadvantages. One such disadvantage is the difficulty to ensure a socialisation process for students and teachers \cite{kose}. Communication applications struggle to provide a strong and effective socialization process as achieved in traditional education systems \cite{kose}. Online education provides many challenges to students including isolation and feeling disconnected \cite{betts}. Additionally, a lack of personal interaction and support are major reasons that lead to student attrition \cite{betts}. Frequent teacher-student contact is one of the most important factors in student motivation and involvement \cite{chick}.  These are key areas that an online lab session could help to address. Rather than students stewing over their problems alone, they can reach out to class demonstrators - not only helping solve their problem but helping to satisfy that need for interaction and a personal, human touch.
 
-The system used by University members will have a direct affect on their satisfaction with both working and studying from home \cite{tenney}. Although the system will also be used to facilitate in-person labs, we should carefully consider the aspects of the system useful for home working since the system is more critical in facilitating online labs than in-person labs. 
+Further, in an online learning environment, dropout rate is more of a key issue \cite{kose} than traditional learning environments. The more opportunities available for students to engage within the course, the higher chance there is that students become engaged and connected - leading to greater student persistence \cite{chick}\cite{betts}. Additionally, students in an online environment do not have the geographical constraints that those study in-person do. This means that quantity of courses available to them is increased and the switching is made easier, meaning that they are more at risk of dropping out \cite{betts}.
 
-Satisfaction and a positive attitude toward work increases the likelihood that students will achieve higher productivity levels \cite{tenney}. The perceived usefulness of the tools that students have access to while \gls{wfh} will also affect productivity \cite{venka}. Student satisfaction and attitude will be directly affected by the tools and system that they use to interact with the University online which will, in turn, increase their ability to work productively \cite{safaa}. This points directly to the design of a bespoke system, which will be the most directly useful and also appear the most visibly useful to users.
+Additionally, communicative patterns can be limited in an online system. Communicative patterns are different today compared to previous generations’ ways of communication \cite{selander}. A common problem with online learning is the overuse of text files which works well for visual learners
+but not for auditory, and kinesthetic learners \cite{peter}. Therefore, any system developed must consider implementing a range of media for different learners - such as images, sound, video and text.
 
-Another important aspect of online learning is students' perceived feeling of support. One of the most importants roles of an online instructor is students feeling their `presence’ \cite{martinteams}. `Being there’ for students and `having a presence that the students felt on the course site’ is essential \cite{martin}. For this reason, the system which is used to manage labs should strive to maximise students' awareness of the demonstrators who are available to help them. 
+\section{Current System} \label{sec:currentsystem}
 
-\section{Current System}
+The current system for managing online lab sessions was developed and adapted at short notice due to the global pandemic. At its simplest, the system must mimic in-person lab activities: allowing students to get a demonstrators attention and allow communication between a student and demonstrator, including showing code and resulting errors. The initial solution was to create a `CS1000 Labs' team on Microsoft Teams \cite{teams}, the University's standard collaboration tool for online learning, and manage the lab sessions by posting announcements when labs opened. Students were then able to post new conversations under these announcements, with instructions to tag the class demonstrators, in which they briefly summarised their issue and provided the module code and practical number associated with their issue (see Figure \ref{fig:teamsone}).
 
-The current system for managing online lab sessions was developed and adapted at short notice due to the global pandemic. The initial solution was to create a `CS1000 Labs' team on Microsoft Teams \cite{teams}, the University's standard collaboration tool for online learning, and manage the lab sessions by posting announcements when labs opened. Students were then able to post new conversations under these announcements, with instructions to tag the class demonstrators, in which they briefly summarised their issue and provided the module code and practical number associated with their issue (see Figure \ref{fig:firstit}).
-
-There were a few problems with this system. As the numbers of posts in the channel increased, it became more difficult to find the `next' person who should get help. This problem was exacerbated by the algorithm that Teams uses to order posts, which was not appropriate or intuitive for the lab channel. Demonstrators were instructed to use the `Activities' tab in Teams that maintained the correct order, however this did not help resolve the difficulty in finding the `next' request. For some of the busier lab sessions, related to practical deadlines, additional, non-regular demonstrators were brought in to help. These demonstrators did not have access to the activities history and therefore had to revert to using the non-ordered main Teams channel.
+There were a few problems with this system. As the numbers of posts in the channel increased, it became more difficult to find the `next' student who should get help. This problem was exacerbated by the algorithm that Teams uses to order posts, which was not appropriate or intuitive for the lab channel. Demonstrators were instructed to use the `Activities' tab in Teams that maintained the correct order, however this was not optimal for finding the `next' request as it required manual scrolling and checking activities to find the oldest that had no response. For some of the busier lab sessions, related to practical deadlines, additional, non-regular demonstrators were brought in to help. These demonstrators did not have access to the activities history and therefore had to revert to using the non-ordered main Teams channel. It is interesting to note that the problem of ordering requests was not new to the online environment, as it was often difficult to know whose hand went up first in an in-person lab, however the problem was made more obvious in an online environment.
 
 \FloatBarrier
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{2context/images/teams1.png}
-  \label{fig:firstit}
-  \caption{An example of the first iteration process of managing online labs.}
+  \includegraphics[width=\textwidth]{2context/images/teams1.png} 
+    \caption{An example of the first iteration process of managing online labs.}
+  \label{fig:teamsone}
 \end{figure}
 
-The second iteration of the system was created by using a Power Automate Flow to create an entry in a Sharepoint List when students posted an issue request to the channel. Class demonstrators used the list to show the chronological order of requests, see which demonstrator was handling each request and to mark requests as resolved. This intermediate iteration addressed most of the major issues from the first iteration, however had its own problems. There could be a delay of up to 15 minutes between the student posting in the teams channel and the request appearing on the Sharepoint List. This delay would be forgiveable in the busier labs, however is clearly unacceptable for the first 15 minutes of labs or for days on which there were less requests.
+The second iteration of the system was created by using a Power Automate Flow to create an entry in a Sharepoint List when students posted an issue request to the channel. Class demonstrators used the list to show the chronological order of requests, see which demonstrator was handling each request and to mark requests as resolved. This intermediate iteration addressed most of the major issues from the first iteration, however had its own problems. There could be a delay of up to 15 minutes between the student posting in the teams channel and the request appearing on the Sharepoint List. This delay would be forgiveable in the busier labs, however is clearly unacceptable for the first 15 minutes of labs or for days on which there were fewer requests.
 
 The third, and current, iteration of the current system uses a form input (see Figure \ref{fig:form}). This is accessed using a `Request Form' tab in the Microsoft Teams \cite{teams} CS1000 Labs team. 
 
@@ -46,8 +41,8 @@ The third, and current, iteration of the current system uses a form input (see F
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{2context/images/teams2a.png}
-    \label{fig:form}
   \caption{The request form from the second iteration process of managing online labs.}
+      \label{fig:form}
 \end{figure}
 
 The form uses Power Automate \cite{pauto} to post (see Figure \ref{fig:privteam}) on a private demonstrator team channel (used only to create a notification for class demonstrators) and add the form data to a Microsoft List \cite{lists}.
@@ -57,10 +52,10 @@ The form uses Power Automate \cite{pauto} to post (see Figure \ref{fig:privteam}
   \centering
   \includegraphics[width=0.6\textwidth]{2context/images/teams2b.png}
   \caption{The format of posts on the private demonstrator channel used to create notifications.}
-  \abel{fig:privteam}
+  \label{fig:privteam}
 \end{figure}
 
-On this real-time collaborative form, class demonstrators can assign themselves to students' requests before they make contact with the student through Microsoft Teams \cite{teams}. The lab lead would also contact students by email if their request was missed, because there were too many requests to deal with during the time that class demonstrators were hired, or if the request was made outside of manned lab hours. The activity diagram below (see Figure \ref{fig:activdiagram}) shows the workflow for the current system during an open lab.
+On this real-time collaborative form, class demonstrators can assign themselves to students' requests before they make contact with the student through Microsoft Teams \cite{teams}. The lab lead would also contact students by email if their request was missed, because there were too many requests to deal with during the time, or if the request was made outside of manned lab hours. The activity diagram below (see Figure \ref{fig:activdiagram}) shows the workflow for the current system during an open lab.
 
 \FloatBarrier
 \begin{figure}[H]
@@ -75,7 +70,7 @@ On this real-time collaborative form, class demonstrators can assign themselves 
 
 Queue management tools are tools that all you to sign-in, be assigned a place in a queue and get a notification when you have reached the head of the queue. They can be be used for accessing a digital or physical resource.
 
-ClassroomQ is a good example of existing queue management tool, applying a queue management tool to an educational context. It offers a very simple system, where a teacher can create a classroom which students can join, type a message and hit an `Assistance Needed' button to join the queue of students who need help. The basic process is shown below.
+ClassroomQ \cite{classroomq} is a good example of an existing queue management tool applied to an educational context. It offers a very simple system, where a teacher can create a classroom which students can join, type a message and hit an `Assistance Needed' button to join the queue of students who need help. The basic process is shown below.
 
 Firstly, the teachers start a classroom session (see Figure \ref{fig:cqstart}).
 
@@ -137,44 +132,46 @@ The teacher is then able to see an ordered view of the student's requests in on 
   \label{fig:cqclass}
 \end{figure}
 
+ClassroomQ is intended to be used with students who are physically present with the teacher in the classroom. It provides no mechanisms for online communication, assuming the communication is done in person or via some other online tool. It also assumes there is one teacher per classroom, which places an implicit limit on the number of students that can be involved in a class.
+
 \newpage
 \section{Incident Management Tools}
 
-Incident management tools are used by IT professionals to organise, categorise and prioritise issue tickets as well as to track their resolution. These incidents can be posted by the IT professionals themselves or by other third parties who are reporting them. These tools, compared with queue management tools, offer significantly more in terms of power of automation, configurability and feature sets. However, these benefits come at the price of greater overheads in setup and maintenance.
+Incident management tools are used by IT professionals to organise, categorise and prioritise issue tickets as well as to track their resolution. These incidents can be posted by the IT professionals themselves or by other third parties who are reporting them. These tools, compared with queue management tools, offer significantly more in terms of power of automation, configurability and feature sets. However, these benefits come at the price of greater overheads in setup and maintenance. Additionally, in the context of lab management, the tool comes with an excess of complex, unnecessary and irrelevant features which result in feature fatigue \cite{ffatigue}.
 
-Spiceworks Cloud Help Desk is a good example of existing incident management tools. It is a free to use, cloud-based help desk that is used by IT professionals. Traditionally, the system is used to track and manage IT issues in order to provide IT support, however the system could also be used to track and manage requests for help in our lab management domain. In the following section we shall discuss the basic process workflow of using Spiceworks to manage students' ticket requests.
+Spiceworks Cloud Help Desk \cite{spiceworks} is a good example of existing incident management tools. It is a free to use, cloud-based help desk that is used by IT professionals. Traditionally, the system is used to track and manage IT issues in order to provide IT support, however the system could also be used to track and manage requests for help in our lab management domain. 
 
-TODO Ruth: 'This is all a bit speculative - I would prefer a discussion of the general incident management process followed by a brief discussion of how the lab management problem could fit into this.'
-
-Firstly, students would access a link to the help portal and enter their email address (see Figure \ref{fig:spiceemail}).
+The first step in the standard Spiceworks workflow, is for the individual wishing to report an incident or issue would access a link to the help portal and enter their email address (see Figure \ref{fig:spiceemail}).
 
 \FloatBarrier
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{2context/images/SWportalLogin.png}
+  \includegraphics[width=0.7\textwidth]{2context/images/SWportalLogin.png}
   \caption{Login screen from portal link.}
   \label{fig:spiceemail}
 \end{figure}
 
-The student would then, if authorised, receive an email link to login to the portal. This would take them to a form in which they would describe their issue (see Figure \ref{fig:spiceform}).
+The individual would then, if authorised, receive an email link to login to the portal. This would take them to a form in which they would describe their issue (see Figure \ref{fig:spiceform}).
 
 \FloatBarrier
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.65\textwidth]{2context/images/SWpostTicket.png}
+  \includegraphics[width=0.75\textwidth]{2context/images/SWpostTicket.png}
   \caption{Ticket posting form, reached after login.}
   \label{fig:spiceform}
 \end{figure}
 
-The ticket would then appear on the class demonstrator help desk (see Figure \ref{fig:spicedesk}).
+The ticket would then appear on the IT help desk (see Figure \ref{fig:spicedesk}).
 
 \FloatBarrier
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.85\textwidth]{2context/images/SWticketPage.png}
-  \caption{The help desk ticket page, accessible to class demonstrators.}
+  \includegraphics[width=\textwidth]{2context/images/SWticketPage.png}
+  \caption{The help desk ticket page, accessible to IT Admins.}
   \label{fig:spicedesk}
 \end{figure}
 
-Class demonstrators are then able to respond to the ticket on Spiceworks, notifying the user by email, and initiate a video call on a different service if necessary. The demonstrator can then close the ticket when complete.
+The IT admins are then able to respond to the ticket on Spiceworks, notifying the user by email. The IT admin can then close the ticket when the incident or issue has been resolved.
+
+The lab management domain requires a very similar workflow, with students logging in and requesting help, and lab demonstrators responding and resolving student problems. Spiceworks also allows customisation of the incident report portal page and form categories, meaning that fields could be added for students to specify module code and practical number when posting a ticket about the issue they are facing.
 

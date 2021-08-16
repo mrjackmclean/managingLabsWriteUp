@@ -1,41 +1,53 @@
 \chapter{Introduction}
 
-The School of Computer Science at the University of St.\ Andrews has historically run lab sessions for early years students, offering them support in developing their practical programming skills. The school traditionally operated these labs using a ‘hands-up’ system to organise in-class support, however the school's relatively rapid growth in class size means that this method is becoming less efficient. The global pandemic has further accelerated the need for an alternative support system, since the in-person labs replacement with online sessions meant that the traditional system was not possible. 
+%The School of Computer Science at the University of St.\ Andrews has historically run lab sessions for early years students, offering them support in developing their practical programming skills. The school traditionally operated these labs using a ‘hands-up’ system to organise in-class support, however the school's relatively rapid growth in class size means that this method is becoming less efficient. The global pandemic has further accelerated the need for an alternative support system, since the in-person labs replacement with online sessions meant that the traditional system was not possible. 
 
-TODO - add more, allude to stuff in context survey and  give outline of dissertation structure
+In the early 2000s, the University of St.\ Andrews' School of Computer Science had a class size of approximately 30 students. It has had a relatively rapid expansion in recent years, with class size of up to 200 students. Although the student to staff ratio in manned computer laboratory sessions has remained fairly consistent throughout the years, the logistics of class management became more difficult. This increasing difficulty has been increasing educators awareness of the need for an alternative solution.
 
+As lockdown measures were introduced in the wake of the global pandemic, the University was forced to move to online learning and the need for an alternative to in-person labs became immediate. Completely remote online teaching is a novel experience for the University, presenting many challenges. The School developed a system for managing online labs using Microsoft Teams \cite{teams}, adapting it in an ad hoc manner to improve the flow and features by integrating with additional systems such as Sharepoint Lists \cite{lists}, Forms \cite{forms} and Power Automate \cite{pauto}. The current system meets the basic needs for managing online labs, however, it lacks more sophisticated lab management facilities, such as gathering statistical data as well as searching and recommending solutions to posted problems.   
+The School of Computer Science requires a system for managing labs that meets its specific needs. The system should be suitable for in-person, remote and dual delivery. It should enable class demonstrators to assist in the resolution of problems students have, should enable lab leads to review labs and address some of the specific nuances that the domain requires - for example addressing the lab opening times. A single application should meet these needs so that the system is easy to use, adapt and maintain.
+
+There are some existing categories of application which could meet the above needs. A small number of classroom management tools exist in the form of queue management systems. Another, much more common, type of application are incident management tools - often used for tracking and logging IT incidents and problems. Both types of application shall be considered and evaluated in order to gain insight into their suitability.
+
+This dissertation begins by outlining the objectives for the project - the development of `codeHelper', the online lab facilitation tool. The second chapter contains a literature review concerning coding in online learning, after which is a discussion about the current system and the existing categories of application discussed above. The third chapter outlines the requirements of the project. The fourth chapter discusses existing applications which were analysed that could fit the problem domain. The fifth chapter discusses the software engineering process which was followed to develop the codeHelper application. The sixth chapter is concerned with design - discussing the more major and interesting design choices for the system architecture, interface and database. The seventh chapter covers the implementation of the system, discussing the major decisions taken. The eighth briefly discusses the types, approach to and implementation of testing throughout the project. The ninth chapter is an evaluation of the developed system, including a discussion of the evaluation participant experiment that was carried out as well as a comparison between codeHelper and the other systems discussed in chapters \ref{chap:context} and \ref{chap:existingtools}. The tenth, and final, chapter concludes the dissertation by discussing limitations and possible future work.
+
+\newpage
 \section{Objectives}
 
-The overall goal of this project is to create a custom system for the School that can be used to manage students' requests for practical programming assistance, both in virtual and physical lab sessions. Objectives for the project are listed below. 
+The overall goal of this project is to create a custom system for the School that can be used to manage students' requests for practical programming assistance, both in virtual and physical lab sessions. Objectives for the project, as well as which were completed, are listed below. 
 
-TODO discuss which were achieved
-
-The main contribution of the dissertation to the field was providing a tool that allows staff to effectively manage the provision of one-to-one assistance for both in-person and remote settings. TODO expand
+The main contribution of the dissertation to the field was providing a tool that allows staff to effectively manage the provision of one-to-one assistance for both in-person and remote settings. Although the system is not production ready, it provides proof of concept that a bespoke system for managing labs is both possible and would make the process more efficient.
 
 \subsection{Primary}
 \begin{itemize}
-    \item [PO1] Investigate and evaluate existing methods of managing labs, identifying weak points.
-    \item [PO2] Undertake established software engineering techniques to plan and design the lab management system.
+    \item [PO1] \textit{Completed} - Investigate and evaluate existing methods of managing labs, identifying weak points.
+    \item [PO2] \textit{Completed} - Undertake established software engineering techniques to plan and design the lab management system.
     \item [] Create a system on which:
     \begin{itemize}
-        \item [PO3.1] Students are able to create `tickets' to request help from class demonstrators through a web interface.
-        \item [PO3.2] Class demonstrators are able to assign, comment on, resolve and close `tickets'.
-        \item [PO3.3] Staff are able to view statistics and summaries of activity - for example which `tickets' were resolved by which demonstrator, the time of resolution and the amount of time the `tickets' were open.
+        \item [PO3.1] \textit{Completed} - Students are able to create `tickets' to request help from class demonstrators through a web interface.
+        \item [PO3.2] \textit{Completed} - Class demonstrators are able to assign, resolve, close and communicate about `tickets'.
+        \item [PO3.3] \textit{Completed} - Staff are able to view statistics and summaries of activity - for example which `tickets' were resolved by which demonstrator, the average time of resolution and the amount of time the `tickets' were open.
     \end{itemize}
-    \item [PO4] Evaluate a prototype of the system using volunteer sets of class demonstrators, then complete a final evaluation without external parties. 
+    \item [PO4] \textit{Completed} - Evaluate a prototype of the system using volunteer sets of class demonstrators, then complete a final evaluation without external parties. 
     
 \end{itemize}
 
 \subsection{Secondary}
 \begin{itemize}
-    \item [SO1] Implement graphical representation of statistics and summaries generated by the system.
-    \item [SO2] Optimise the system for use on mobile devices. 
-    \item [SO3] Create a UI recommending anonymised `tickets' to students that may be similar to the their request.
-    \item [SO4] Implement a live text chat element on each ticket, allowing interaction between the demonstrator and student.
+    \item [SO1] \textit{Completed} - Implement graphical representation of statistics and summaries generated by the system.
+    \item [SO2] \textit{Completed} - Implement a live text chat element on each ticket, allowing interaction between the demonstrator and student.
 \end{itemize}
 
 \subsection{Tertiary}
 \begin{itemize}
     \item [TO1] Implement authentication on the system using the Shibboleth single sign-on system used by the University of St. Andrews.
-    \item [TO2] Implement a method to allow students and class demonstrators to communicate by video chat. 
+    \item [TO2] \textit{Completed} - Implement a method to allow students and class demonstrators to communicate by video chat. 
+    \item [T03] Create a user interface recommending anonymised `tickets' to students that may be similar to the their request.
+    \item [T04] \textit{Completed} - Implement a screen sharing feature on each ticket, allowing interaction between the demonstrator and student.
+    \item [T05] \textit{Partially Completed} - Optimise the system for use on mobile devices. 
 \end{itemize}
+
+
+
+
+ 
